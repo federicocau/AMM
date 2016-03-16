@@ -26,21 +26,22 @@ and open the template in the editor.
         </nav>
       </header>
         
-        <div class="input-form">
+        <div>
         <h3>Inserisci un nuovo oggetto:</h3>
-        <form method="post" action="a.html">
+        <form method="GET">
             <label for="nome_oggetto">Nome oggetto</label> <br/><input name="nome_oggetto" id="nome_oggetto" type="text"/>
             <br/><br/>
             <label for="url_immy">URL immagine</label> <br/><input name="url_immy" id="url_immy" type="url"/>
             <br/><br/>
-            <label for="descr">Descrizione oggetto</label><br/> <textarea rows="4" cols="30"  name="descr" id="descr" > </textarea>
+            <label for="descrizione">Descrizione oggetto</label><br/> <textarea rows="4" cols="30"  name="descrizione" id="descrizione" > </textarea>
             <br/><br/>
-            <label for="prezzo">Prezzo</label> <br/> <input name="prezzo" id="prezzo" type="text"/>
+            <label for="prezzo">Prezzo</label> <br/> <input name="prezzo" id="prezzo" type="number"/>
             <br/><br/>
-            <label for="quantità">Quantità oggetto</label> <br/> <input name="quantità" id="quantità" type="text"/>
+            <label for="quantità">Quantità oggetto</label> <br/> <input name="quantità" id="quantità" type="number"/>
             <br/>
             <br/>
             <input type="submit" value="Inserisci"/>
+            <input type="submit" value="Pulisci campi"/>
         </form>
        </div>
         
