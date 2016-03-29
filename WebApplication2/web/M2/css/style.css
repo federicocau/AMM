@@ -1,0 +1,218 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23-mar-2016, 16.17.47
+    Author     : Admin
+*/
+
+/*
+    Login.html
+*/
+
+body{
+    background: #e2e2e0;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+
+#box{
+    /* dimensione box */
+    width: 960px;
+    /* centra orizzontalmente quell'elemento all'interno del suo contenitore */
+    margin: 0 auto;
+}
+
+#header{
+    width:920px;
+    padding:20px;
+    background:#21aabd;
+    color: #fff;
+    text-align: center;
+}
+
+/*
+    css <nav>
+*/
+#navigazione{
+    /* dimensione dei lati */
+    margin:0;
+    padding:0;
+    list-style: none;
+    float:left;
+    /* lunghezza e colore barra di navigazione */
+    width: 960px;
+    background-color: #000;
+    /* dimensione del font */
+    font-size:85%
+}
+
+/*
+    css <li>
+*/
+#navigazione li {
+    /* dimensione dei lati */
+    margin:0;
+    padding:0;
+    /* elemeto a sinistra */
+    float:left;
+    display: block;
+    
+    /* dimensione in pixel dei bordi e relativo colore */
+    border-right: 1px solid #223;
+    position: relative;
+}
+
+/*
+    padding da' la larghezza del bottone
+    float: left -> elemento a sinistra
+*/
+#navigazione li a {
+    float: left;
+    /* 14 pixel altezza, 30 pixel lunghezza */
+    padding:14px 30px;
+    /* colore font <li> */
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration:none;
+}
+
+/*
+    mouse sopra i <li>
+*/
+#navigazione li a:hover {
+    background-color: #666;
+}
+
+/*
+border-radius:2em;
+
+is equivalent to:
+
+border-top-left-radius:2em;
+border-top-right-radius:2em;
+border-bottom-right-radius:2em;
+border-bottom-left-radius:2em;
+*/
+.login {
+  position: relative;
+  /* distanza superiore */
+  top: 10px;
+  background: #eceeee;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 270px;
+  width: 300px;
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 50px auto ; 
+}
+
+/* Accedi */
+.logformtitle{
+    margin: 15px 0 15px 29px;
+    text-align: left;
+}
+
+/* User/Password */
+.logform{
+    margin: 15px 0 15px 29px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+input[type="password"], input[type="text"] {
+  /* dimensione e colore del bordo */
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff; 
+  /* 
+    border-box:	(contenitore))
+    The width and height properties (and min/max properties) 
+    includes content, padding and border, but not the margin
+  */
+  box-sizing: border-box;
+  /* colore scritta dentro la box */
+  color: #000;
+  /* altezza box password */
+  height: 30px; 
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 5px 0 15px 29px;
+  /* sposta la scritta predefinita dentro il form di n pixel */
+  padding-left: 15px;
+  /* lunghezza box user/password */
+  width: 240px;
+}
+
+#login_button{
+  /* dimensione e colore del bordo */
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff;  
+   
+  /* larghezza bottone */
+  width: 240px;
+  /* altezza bottone */
+  height:30px;
+  
+  font-size:16px;
+  /* colore scritta */
+  color:#000;
+  
+  text-align:center;
+ 
+  /* posizione scritta all'interno del bottone */
+  padding-top:4px;
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 5px 0 15px 29px;
+  /* onmouse over appare la manina*/
+  cursor: pointer;
+  
+  /*background-color: #fff;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+
+
+}
+
+#login_button:hover{
+    /*background-color: #ABABAB;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+}
+
+/**
+    Descrizione.html
+**/
+
+#header_descrizione{
+    width:920px;
+    padding:20px;
+    background:#21aabd;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+}
+
+.title{ 
+    margin: 25px auto;
+    font-size: 35px;
+}

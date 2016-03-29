@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <!-- Meta informazioni della pagina: autore, descrizione sito, parole chiave -->
+        <title>Techware Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Techware: negozio online per la vendita di prodotti hardware per PC!">
+        <meta name="author" content="Federico M. Cau">
+        <meta name="keywords" content="HDD, SSD, USB, CPU, ALIMENTATORI, DISSIPATORI, RAM, SCHEDE MADRI, 
+              SCHEDE VIDEO, SCHEDE AUDIO, MOUSE, KEYBOARD, CASE">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    </head>
+    <body>
+    <div id="box">
+           
+        <div id="header">
+            <h1 class="title">Techware</h1>
+        </div>
+        
+        <!-- Barra di navigazione principale -->
+        <nav>
+            <ul id="navigazione">
+            <!--<strong>Navigazione:</strong>-->
+            <li><a href="descrizione.html">Descrizione</a></li>
+            <li><a href="cliente.html">Cliente</a></li> 
+            <li><a href="venditore.html">Venditore</a></li>
+            </ul>
+        </nav>
+
+        <!-- form di input che contiene nome utente e password -->
+        <div class="login">
+            <h2 class="logformtitle">Accedi</h2>
+        <form name="form_login" method="GET">
+            <!-- placeholder: scritta presente nel form; es. placeholder="Username" -->
+            <label for="user" class="logform">Username</label> <input name="user" id="user"  type="text">
+            <label for="password" class="logform">Password</label> <input name="password" id="password" type="password">
+            <button id="login_button" type="submit">Accedi</button>
+        </form>
+        </div>
+        
+        <!-- Qua si potrebbe inserire un eventuale footer -->
+        <div id="footer">
+            
+        </div>
+    </div>
+    </body>
+</html>
