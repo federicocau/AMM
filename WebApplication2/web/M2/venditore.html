@@ -34,24 +34,16 @@ and open the template in the editor.
              Ho inserito input e label dentro dei paragrafi solo per avere un minimo di chiarezza nella visualizzazione
              della pagina, li rimuoverò quando faremo i CSS.
         -->
-        <div>
-        <h3>Inserisci un nuovo oggetto:</h3>
+        <div class="venditore">
+        <h3 class="venditore_title">Inserisci un nuovo oggetto:</h3>
         <form method="GET">
-            <p>
-            <label for="nome_oggetto">Nome oggetto</label>  <input name="nome_oggetto" id="nome_oggetto" type="text"/>
-            <label for="url_immagine">URL immagine</label>      <input name="url_immagine" id="url_immagine" type="url"/>
-            </p>
-            
-            <p>
-            <label for="descrizione">Descrizione oggetto</label> <textarea rows="7" cols="60"  name="descrizione" id="descrizione" ></textarea>
-            </p>
-            
-            <p>
-            <label for="prezzo">Prezzo</label>      <input name="prezzo" id="prezzo" type="number" min="0"/>
-            <label for="quantità">Quantità oggetto</label> <input name="quantità" id="quantità" type="number" min="0"/>
-            <input type="submit" value="Inserisci"/>
-            <input type="submit" value="Pulisci campi"/>
-            </p>
+            <label for="nome_oggetto" class="venditore_form">Nome oggetto</label> <input name="nome_oggetto" id="nome_oggetto" type="text"/>
+            <label for="url_immagine" class="venditore_form">URL immagine</label> <input name="url_immagine" id="url_immagine" type="url"/>
+            <label for="descrizione" class="venditore_form">Descrizione oggetto</label> <textarea rows="7" cols="60"  name="descrizione" id="descrizione" ></textarea>
+            <label for="prezzo" class="venditore_form">Prezzo</label>      <input name="prezzo" id="prezzo" type="number" min="0"/>
+            <label for="quantità" class="venditore_form">Quantità oggetto</label> <input name="quantità" id="quantità" type="number" min="0"/>
+            <input id="venditore_insert" type="submit" value="Inserisci"/>
+            <input id="venditore_delete" type="submit" value="Pulisci campi"/>
         </form>
        </div>
         

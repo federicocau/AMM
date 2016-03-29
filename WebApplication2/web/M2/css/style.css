@@ -11,7 +11,6 @@ and open the template in the editor.
 /*
     Login.html
 */
-
 body{
     background: #e2e2e0;
     font-family: "Open Sans", Arial, sans-serif;
@@ -115,19 +114,19 @@ border-bottom-left-radius:2em;
 
 /* Accedi */
 .logformtitle{
-    margin: 15px 0 15px 29px;
+    margin: 12px 0 12px 29px;
     text-align: left;
 }
 
 /* User/Password */
 .logform{
-    margin: 15px 0 15px 29px;
+    margin: 12px 0 12px 29px;
     font-weight: bold;
     font-size: 15px;
 }
 
-
-input[type="password"], input[type="text"] {
+/* User/Password login */
+#user, #password {
   /* dimensione e colore del bordo */
   border: 1px solid #a1a3a3;
   /* ondulazione angoli */
@@ -142,8 +141,10 @@ input[type="password"], input[type="text"] {
   box-sizing: border-box;
   /* colore scritta dentro la box */
   color: #000;
-  /* altezza box password */
+  /* altezza box */
   height: 30px; 
+  /* lunghezza box  */
+  width: 240px;
   /*
     margin-top
     margin-right
@@ -153,8 +154,7 @@ input[type="password"], input[type="text"] {
   margin: 5px 0 15px 29px;
   /* sposta la scritta predefinita dentro il form di n pixel */
   padding-left: 15px;
-  /* lunghezza box user/password */
-  width: 240px;
+  
 }
 
 #login_button{
@@ -202,7 +202,6 @@ input[type="password"], input[type="text"] {
 /**
     Descrizione.html
 **/
-
 #header_descrizione{
     width:920px;
     padding:20px;
@@ -215,4 +214,233 @@ input[type="password"], input[type="text"] {
 .title{ 
     margin: 25px auto;
     font-size: 35px;
+}
+
+
+
+/**
+    Cliente.html
+**/
+.cliente{
+    position: relative;
+  /* distanza superiore */
+  top: 30px;
+  /*background: #eceeee;*/
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 930px;
+  width: 960px;
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 30px auto ; 
+}
+
+/* Prodotti */
+.cliente_title{
+    text-align: center;
+}
+
+.cliente_button{
+    /* dimensione e colore del bordo */
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff;  
+   
+  /* larghezza bottone */
+  width: 150px;
+  /* altezza bottone */
+  height:30px;
+  
+  font-size:14px;
+  /* colore scritta */
+  color:#000;
+  
+  text-align:center;
+ 
+  /* posizione scritta all'interno del bottone */
+  padding-top:4px;
+ 
+  /* onmouse over appare la manina*/
+  cursor: pointer;
+  
+  /*background-color: #fff;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+}
+
+.cliente_button:hover{
+    /*background-color: #ABABAB;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+}
+
+/* struttura tabella */
+table{
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+}
+th{
+    height: 50px;
+    width: 120px;
+    /*padding: 10px;*/
+    font-size: 15px;
+}
+
+/* alternanza di colore tra le righe */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+td{
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+
+/**
+    venditore.html
+**/
+.venditore{
+    position: relative;
+  /* distanza superiore */
+  top: 10px;
+  background: #eceeee;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 510px;
+  width: 345px;
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 50px auto ; 
+}
+
+.venditore_title{
+    margin: 12px 0 12px 29px;
+    text-align: left;
+}
+
+/* Nome oggetto, URL immagine */
+.venditore_form{
+    margin: 12px 0 12px 29px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* dimensione delle box */
+#nome_oggetto, #url_immagine, #prezzo, #quantità{
+  /* dimensione e colore del bordo */   
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff; 
+  /* 
+    border-box:	(contenitore))
+    The width and height properties (and min/max properties) 
+    includes content, padding and border, but not the margin
+  */
+  box-sizing: border-box;
+  /* colore scritta dentro la box */
+  color: #000;
+  /* altezza box password */
+  height: 30px; 
+  /* lunghezza box user/password */
+  width: 290px;
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 5px 0 15px 29px;
+  /* sposta la scritta predefinita dentro il form di n pixel */
+  padding-left: 15px;
+  
+}
+
+/* descrizione oggetto */
+#descrizione{
+  /* dimensione e colore del bordo */   
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff; 
+  /* 
+    border-box:	(contenitore))
+    The width and height properties (and min/max properties) 
+    includes content, padding and border, but not the margin
+  */
+  box-sizing: border-box;
+  /* colore scritta dentro la box */
+  color: #000;
+  /* altezza box */
+  height: 80px;
+  /* lunghezza box */
+  width: 290px;
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 5px 0 10px 29px;
+  /* sposta la scritta predefinita dentro il form di n pixel */
+  padding-left: 15px;
+  
+}
+
+/* bottoni venditore */
+#venditore_insert, #venditore_delete{
+  /* dimensione e colore del bordo */
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff;  
+   
+  /* larghezza bottone */
+  width: 128px;
+  /* altezza bottone */
+  height:30px;
+  
+  font-size:16px;
+  /* colore scritta */
+  color:#000;
+  
+  text-align:center;
+ 
+  /* posizione scritta all'interno del bottone */
+  padding-top:4px;
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 5px 0 15px 29px;
+  /* onmouse over appare la manina*/
+  cursor: pointer;
+  
+  /*background-color: #fff;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+
+}
+
+#venditore_insert:hover, #venditore_delete:hover{
+    /*background-color: #ABABAB;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
 }
