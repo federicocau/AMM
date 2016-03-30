@@ -19,15 +19,20 @@ body{
 #box{
     /* dimensione box */
     width: 960px;
+    height: 900px;
     /* centra orizzontalmente quell'elemento all'interno del suo contenitore */
     margin: 0 auto;
+    /*
+    border: 1px solid #000;
+    */
 }
 
 #header{
     width:920px;
     padding:20px;
-    background:#21aabd;
-    color: #fff;
+    /* #21aabd */
+    background:#e2e2e0;
+    color: #000;
     text-align: center;
 }
 
@@ -202,20 +207,106 @@ border-bottom-left-radius:2em;
 /**
     Descrizione.html
 **/
-#header_descrizione{
-    width:920px;
-    padding:20px;
-    background:#21aabd;
-    color: #fff;
-    text-align: center;
-    font-size: 10px;
-}
 
 .title{ 
     margin: 25px auto;
     font-size: 35px;
 }
 
+
+#descrizione_content{
+    float: right;
+    width: 70%;
+}
+
+#descrizione_aside{
+    width: 16%;
+    font-size: 85%;
+    /* distanza dall'alto */
+    margin-top: 10px;
+    float: left;
+    padding: 0;
+}
+
+#descrizione_aside li{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    position: relative;
+    display: block;
+}
+
+#descrizione_aside li a{
+    color: #fff;
+    background-color: #000;
+    display: block;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #e2e2e0;
+    /* altezza celle */
+    height: 40px;
+    /* distanza dall'alto del testo */
+    line-height: 37px;
+    /* testo tutto maiuscolo */
+    text-transform: uppercase;
+    /* testo centrato */
+    text-align: center;
+    /* evito di sottolineare il testo */
+    text-decoration: none;
+}
+
+
+#descrizione_aside li a:hover{
+    background-color: #036;
+}
+
+/* lista scroll */
+
+#descrizione_aside ul {
+    /* celle allineate */
+    display: inline-block;
+    /* opacità sottomenù */
+    opacity: 0;
+    /* nascondo i sottomenù */
+    visibility: hidden;
+    
+    position: absolute;
+    top: 0px;
+    /* top right bottom left (distanza submenu')*/
+    margin: 0px 114px 0;
+    /* mi serve per il focus dei sottomenù */
+    z-index: 99;
+    /* font ul */
+    font-size: 13px;
+    
+}
+
+
+#descrizione_aside li:hover ul{
+        /* opacità sottomenù */
+	opacity: 1;
+        /* mostro i sottomenù e mantengo il focus */
+        visibility: visible;
+}
+
+#descrizione_aside ul li{
+	float: none;
+	display: block;
+	border: 0;
+}
+
+#descrizione_aside ul a{
+	padding: 0px;
+        /* lunghezza celle ul */
+	width: 139px;
+	display: block;
+	text-transform: none;
+}
+
+#descrizione_aside ul a:hover{
+	background-color: #0186ba;
+	color:#fff
+}
 
 
 /**
@@ -307,7 +398,7 @@ td{
 
 
 /**
-    venditore.html
+    Venditore.html
 **/
 .venditore{
     position: relative;

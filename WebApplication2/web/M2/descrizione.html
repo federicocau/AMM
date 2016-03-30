@@ -21,7 +21,7 @@ and open the template in the editor.
     <div id="box">
         
         <!-- Titolo della pagina e breve descrizione del sito -->
-       <header id="header_descrizione">   
+       <header id="header">   
          <h1 class="title">Techware</h1>
          <!--<p>
             è un sito che dà la possibilità di acquistare tutte le componenti per chi vuole migliorare le prestazioni
@@ -38,9 +38,9 @@ and open the template in the editor.
       
         <!-- Barra di navigazione laterale che contiene i prodotti venduti e i corrispettivi link interni alla pagina -->
         <aside>
-        <h2>I nostri prodotti:</h2>
-         <ul>
-            <li>Dispositivi di archiviazione
+         <ul id="descrizione_aside">
+             
+             <li><a href="#">Archiviazione</a>
             <ul>
                 <li><a href="#harddisk">Hard Disk Drive (HDD)</a></li>
                 <li><a href="#solidstate">Solid State Drive (SSD)</a></li>
@@ -52,7 +52,7 @@ and open the template in the editor.
             <li><a href="#alim">Alimentatori</a></li>
             <li><a href="#diss">Dissipatori</a></li>
 
-            <li>Schede/Memorie
+            <li><a href="#">Schede/Memorie</a>
             <ul>
                 <li><a href="#ram">Memoria RAM</a></li>
                 <li><a href="#schedemadri">Schede Madri</a></li>
@@ -61,7 +61,7 @@ and open the template in the editor.
             </ul>
             </li>
                   
-            <li>Altri accessori
+            <li><a href="#">Accessori</a>
             <ul>
                 <li><a href="#mouse">Mouse</a></li>
                 <li><a href="#keyboard">Tastiere</a></li>
@@ -72,6 +72,8 @@ and open the template in the editor.
         </ul>
         </aside>
         
+        <div id="descrizione_content">
+        <h2>I nostri prodotti:</h2>
         <!-- Descrizione dei vari prodotti -->
         <a id="harddisk">
         <h3> Hard Disk Drive (HDD) </h3>     
@@ -265,7 +267,7 @@ and open the template in the editor.
          Tali dispositivi hardware vennero immessi sul mercato a partire dagli anni novanta del XX secolo.
                  
         </p>
-        
+        </div>
         <!-- Qua si potrebbe inserire un eventuale footer -->
     </div>
     </body>
