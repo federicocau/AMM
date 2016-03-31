@@ -18,18 +18,19 @@ body{
 
 #box{
     /* dimensione box */
-    width: 960px;
+    width: 1000px;
     height: 900px;
     /* centra orizzontalmente quell'elemento all'interno del suo contenitore */
     margin: 0 auto;
-    /*
-    border: 1px solid #000;
-    */
+    
+    /*border: 1px solid #000;*/
+    
 }
 
 #header{
-    width:920px;
-    padding:20px;
+    width:98%;
+    padding:10px;
+    margin: 0 auto;
     /* #21aabd */
     background:#e2e2e0;
     color: #000;
@@ -41,15 +42,16 @@ body{
 */
 #navigazione{
     /* dimensione dei lati */
-    margin:0;
-    padding:0;
+    margin: 0 auto;
+    padding: 0;
     list-style: none;
     float:left;
     /* lunghezza e colore barra di navigazione */
-    width: 960px;
+    width: 1000px;
     background-color: #000;
     /* dimensione del font */
     font-size:85%
+    
 }
 
 /*
@@ -273,7 +275,7 @@ border-bottom-left-radius:2em;
     position: absolute;
     top: 0px;
     /* top right bottom left (distanza submenu')*/
-    margin: 0px 114px 0;
+    margin: 0px 125px 0;
     /* mi serve per il focus dei sottomenù */
     z-index: 99;
     /* font ul */
@@ -387,6 +389,9 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
+tr:hover {
+    /*background-color: #f5fff5;*/
+}
 
 td{
     padding: 5px;
