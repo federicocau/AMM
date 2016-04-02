@@ -14,11 +14,13 @@ and open the template in the editor.
 body{
     background: #e2e2e0;
     font-family: "Open Sans", Arial, sans-serif;
+    color: black;
 }
 
+/* formato contenitore principale */
 #box{
     /* dimensione box */
-    width: 1000px;
+    width: 900px;
     height: 900px;
     /* centra orizzontalmente quell'elemento all'interno del suo contenitore */
     margin: 0 auto;
@@ -27,6 +29,7 @@ body{
     
 }
 
+/* formato box header */
 #header{
     width:98%;
     padding:10px;
@@ -35,6 +38,16 @@ body{
     background:#e2e2e0;
     color: #000;
     text-align: center;
+}
+
+/* formato header */
+h1,h2,h3{
+    color: darkslategrey;
+}
+
+/* format paragrafi */
+p{
+    font-size: 13px;
 }
 
 /*
@@ -47,7 +60,7 @@ body{
     list-style: none;
     float:left;
     /* lunghezza e colore barra di navigazione */
-    width: 1000px;
+    width: 900px;
     background-color: #000;
     /* dimensione del font */
     font-size:85%
@@ -72,12 +85,11 @@ body{
 
 /*
     padding da' la larghezza del bottone
-    float: left -> elemento a sinistra
 */
 #navigazione li a {
     float: left;
     /* 14 pixel altezza, 30 pixel lunghezza */
-    padding:14px 30px;
+    padding:12px 30px;
     /* colore font <li> */
     color: #fff;
     text-transform: uppercase;
@@ -88,7 +100,7 @@ body{
     mouse sopra i <li>
 */
 #navigazione li a:hover {
-    background-color: #666;
+    background-color: #0186ba;
 }
 
 /*
@@ -139,7 +151,7 @@ border-bottom-left-radius:2em;
   /* ondulazione angoli */
   border-radius: 4px;
   /* ombra angoli */
-  box-shadow: 0 1px #fff; 
+  box-shadow: 0 1px #fff;
   /* 
     border-box:	(contenitore))
     The width and height properties (and min/max properties) 
@@ -164,6 +176,26 @@ border-bottom-left-radius:2em;
   
 }
 
+/* focus in box */
+/* Login.html*/
+#user:focus, #password:focus,
+/* Venditore. html */
+#nome_oggetto:focus, #url_immagine:focus, #descrizione:focus, #prezzo:focus, #quantity:focus{
+    /* web transition per il focus */
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
+    
+    /* colore on focus */
+    box-shadow: 0 0 7px orange;
+    /* rimuovo il contorno */
+    outline: none;
+    /* cambio il colore del bordo */
+    border: 1px solid orange;
+}
+
+/* bottone login */
 #login_button{
   /* dimensione e colore del bordo */
   border: 1px solid #a1a3a3;
@@ -206,21 +238,22 @@ border-bottom-left-radius:2em;
   background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
 }
 
+
 /**
     Descrizione.html
 **/
-
 .title{ 
     margin: 25px auto;
     font-size: 35px;
 }
 
-
+/* descrizione componenti */
 #descrizione_content{
     float: right;
-    width: 75%;
+    width: 78%;
 }
 
+/* barra al lato */
 #descrizione_aside{
     width: 16%;
     font-size: 85%;
@@ -230,6 +263,27 @@ border-bottom-left-radius:2em;
     padding: 0;
 }
 
+/* format cella categoria */
+#categorie{
+    color: #fff;
+    background-color: lightseagreen;
+    display: block;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #fff;
+    /* altezza celle */
+    height: 40px;
+    /* distanza dall'alto del testo */
+    line-height: 37px;
+    /* testo tutto maiuscolo */
+    text-transform: uppercase;
+    /* testo centrato */
+    text-align: center;
+    /* evito di sottolineare il testo */
+    text-decoration: none;
+}
+
+/* format lista */
 #descrizione_aside li{
     margin: 0px;
     padding: 0px;
@@ -238,6 +292,7 @@ border-bottom-left-radius:2em;
     display: block;
 }
 
+/* format link */
 #descrizione_aside li a{
     color: #fff;
     background-color: #000;
@@ -257,13 +312,11 @@ border-bottom-left-radius:2em;
     text-decoration: none;
 }
 
-
 #descrizione_aside li a:hover{
     background-color: #036;
 }
 
-/* lista scroll */
-
+/* lista sottomenù */
 #descrizione_aside ul {
     /* celle allineate */
     display: inline-block;
@@ -275,15 +328,14 @@ border-bottom-left-radius:2em;
     position: absolute;
     top: 0px;
     /* top right bottom left (distanza submenu')*/
-    margin: 0px 125px 0;
+    margin: 0px 107px 0;
     /* mi serve per il focus dei sottomenù */
     z-index: 99;
     /* font ul */
     font-size: 13px;
     
 }
-
-
+/* mouse on lista -> ul */
 #descrizione_aside li:hover ul{
         /* opacità sottomenù */
 	opacity: 1;
@@ -291,12 +343,14 @@ border-bottom-left-radius:2em;
         visibility: visible;
 }
 
+/* lista sottomenù */
 #descrizione_aside ul li{
 	float: none;
 	display: block;
 	border: 0;
 }
 
+/* lista sottomenù link */
 #descrizione_aside ul a{
 	padding: 0px;
         /* lunghezza celle ul */
@@ -322,7 +376,7 @@ border-bottom-left-radius:2em;
   border: 1px solid #42464b;
   border-radius: 6px;
   height: 930px;
-  width: 960px;
+  width: 880px;
   /*
     margin-top
     margin-right
@@ -400,8 +454,6 @@ td{
 }
 
 
-
-
 /**
     Venditore.html
 **/
@@ -436,7 +488,7 @@ td{
 }
 
 /* dimensione delle box */
-#nome_oggetto, #url_immagine, #prezzo, #quantità{
+#nome_oggetto, #url_immagine, #prezzo, #quantity{
   /* dimensione e colore del bordo */   
   border: 1px solid #a1a3a3;
   /* ondulazione angoli */
@@ -464,7 +516,6 @@ td{
   margin: 5px 0 15px 29px;
   /* sposta la scritta predefinita dentro il form di n pixel */
   padding-left: 15px;
-  
 }
 
 /* descrizione oggetto */
