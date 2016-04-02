@@ -266,7 +266,8 @@ border-bottom-left-radius:2em;
 /* format cella categoria */
 #categorie{
     color: #fff;
-    background-color: lightseagreen;
+    /* effetto sfumato webkit */
+    background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
     display: block;
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -301,7 +302,7 @@ border-bottom-left-radius:2em;
     border-bottom-style: solid;
     border-bottom-color: #e2e2e0;
     /* altezza celle */
-    height: 40px;
+    height: 36px;
     /* distanza dall'alto del testo */
     line-height: 37px;
     /* testo tutto maiuscolo */
@@ -310,10 +311,11 @@ border-bottom-left-radius:2em;
     text-align: center;
     /* evito di sottolineare il testo */
     text-decoration: none;
+    font-size: 13px;
 }
 
 #descrizione_aside li a:hover{
-    background-color: #036;
+    background-color: #0186ba;/*cac*/
 }
 
 /* lista sottomenù */
