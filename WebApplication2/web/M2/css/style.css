@@ -20,24 +20,37 @@ body{
 /* formato contenitore principale */
 #box{
     /* dimensione box */
-    width: 900px;
-    height: 900px;
+    width: 80%;
+    height: 100%;
     /* centra orizzontalmente quell'elemento all'interno del suo contenitore */
-    margin: 0 auto;
+    margin-left : auto;
+    margin-right : auto;
+    margin-top: 15px;
+    margin-bottom: 100px;
     
-    /*border: 1px solid #000;*/
+    border: 1px solid #000;
+    
     
 }
 
 /* formato box header */
 #header{
-    width:98%;
-    padding:10px;
-    margin: 0 auto;
+    width:100%;
+    
+   /* padding:10px;*/
+   /* margin-top: 10px;*/
     /* #21aabd */
-    background:#e2e2e0;
+    /*
+    background:#e2e2e0;*/
     color: #000;
     text-align: center;
+    
+}
+
+.title{ 
+    padding: 30px;
+    margin: 0 auto;
+    font-size: 35px;
 }
 
 /* formato header */
@@ -60,7 +73,7 @@ p{
     list-style: none;
     float:left;
     /* lunghezza e colore barra di navigazione */
-    width: 900px;
+    width: 100%;
     background-color: #000;
     /* dimensione del font */
     font-size:85%
@@ -86,7 +99,7 @@ p{
 /*
     padding da' la larghezza del bottone
 */
-#navigazione li a {
+#navigazione li a{
     float: left;
     /* 14 pixel altezza, 30 pixel lunghezza */
     padding:12px 30px;
@@ -99,7 +112,59 @@ p{
 /*
     mouse sopra i <li>
 */
-#navigazione li a:hover {
+#navigazione li a:hover{
+    background-color: #0186ba;
+}
+
+#footer{
+    /* dimensione dei lati */
+    margin-left : auto;
+    margin-right : auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0;
+    list-style: none;
+    float:left;
+    /* lunghezza e colore barra di navigazione */
+    width: 100%;
+    background-color: #000;
+    /* dimensione del font */
+    font-size:85%
+}
+
+/*
+    css <li>
+*/
+#footer li {
+    /* dimensione dei lati */
+    margin:0;
+    padding:0;
+    /* elemeto a sinistra */
+    float:left;
+    display: block;
+    
+    /* dimensione in pixel dei bordi e relativo colore */
+    border-right: 1px solid #223;
+    position: relative;
+}
+
+/*
+    padding da' la larghezza del bottone
+*/
+#footer li a{
+    float: left;
+    /* 14 pixel altezza, 30 pixel lunghezza */
+    padding:12px 30px;
+    /* colore font <li> */
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration:none;
+}
+
+/*
+    mouse sopra i <li>
+*/
+#footer li a:hover{
     background-color: #0186ba;
 }
 
@@ -116,25 +181,22 @@ border-bottom-left-radius:2em;
 .login {
   position: relative;
   /* distanza superiore */
-  top: 10px;
+  top: 25px;
+  /*     margin-top     margin-right     margin-bottom     margin-left   */
+  margin: 50px auto ; 
   background: #eceeee;
   border: 1px solid #42464b;
   border-radius: 6px;
   height: 270px;
   width: 300px;
-  /*
-    margin-top
-    margin-right
-    margin-bottom
-    margin-left
-  */
-  margin: 50px auto ; 
+
 }
 
 /* Accedi */
 .logformtitle{
     margin: 12px 0 12px 29px;
     text-align: left;
+    font-size: 25px;
 }
 
 /* User/Password */
@@ -209,14 +271,14 @@ border-bottom-left-radius:2em;
   /* altezza bottone */
   height:30px;
   
-  font-size:16px;
+  font-size:15px;
   /* colore scritta */
   color:#000;
   
   text-align:center;
  
   /* posizione scritta all'interno del bottone */
-  padding-top:4px;
+  padding-top:2px;
   /*
     margin-top
     margin-right
@@ -242,10 +304,6 @@ border-bottom-left-radius:2em;
 /**
     Descrizione.html
 **/
-.title{ 
-    margin: 25px auto;
-    font-size: 35px;
-}
 
 /* descrizione componenti */
 #descrizione_content{
@@ -330,7 +388,7 @@ border-bottom-left-radius:2em;
     position: absolute;
     top: 0px;
     /* top right bottom left (distanza submenu')*/
-    margin: 0px 107px 0;
+    margin: 0px 77% 0;
     /* mi serve per il focus dei sottomenù */
     z-index: 99;
     /* font ul */
@@ -371,21 +429,24 @@ border-bottom-left-radius:2em;
     Cliente.html
 **/
 .cliente{
-    position: relative;
+   position: relative;
   /* distanza superiore */
-  top: 30px;
+  top: 24px;
   /*background: #eceeee;*/
   border: 1px solid #42464b;
   border-radius: 6px;
+  /*
   height: 930px;
-  width: 880px;
+  width: 880px;*/
+  width: 80%;
+  height: 80%;
   /*
     margin-top
     margin-right
     margin-bottom
     margin-left
   */
-  margin: 30px auto ; 
+  margin: 50px auto ; 
 }
 
 /* Prodotti */
@@ -402,11 +463,11 @@ border-bottom-left-radius:2em;
   box-shadow: 0 1px #fff;  
    
   /* larghezza bottone */
-  width: 150px;
+  width: 135px;
   /* altezza bottone */
   height:30px;
   
-  font-size:14px;
+  font-size:13px;
   /* colore scritta */
   color:#000;
   
@@ -430,13 +491,15 @@ border-bottom-left-radius:2em;
 /* struttura tabella */
 table{
     width: 100%;
+    height:98%;
     background-color: white;
     border-collapse: collapse;
+    margin: auto;
 }
 th{
-    height: 50px;
-    width: 120px;
-    /*padding: 10px;*/
+    height: 30%;
+    width: 100%;
+    padding: 8px;
     font-size: 15px;
 }
 
@@ -462,7 +525,7 @@ td{
 .venditore{
     position: relative;
   /* distanza superiore */
-  top: 10px;
+  top: 27px;
   background: #eceeee;
   border: 1px solid #42464b;
   border-radius: 6px;
@@ -480,6 +543,7 @@ td{
 .venditore_title{
     margin: 12px 0 12px 29px;
     text-align: left;
+    font-size: 20px;
 }
 
 /* Nome oggetto, URL immagine */
@@ -566,14 +630,14 @@ td{
   /* altezza bottone */
   height:30px;
   
-  font-size:16px;
+  font-size:15px;
   /* colore scritta */
   color:#000;
   
   text-align:center;
  
   /* posizione scritta all'interno del bottone */
-  padding-top:4px;
+  padding-top:2px;
   /*
     margin-top
     margin-right
@@ -592,4 +656,130 @@ td{
 #venditore_insert:hover, #venditore_delete:hover{
     /*background-color: #ABABAB;*/
   background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+}
+
+
+/**
+    Risoluzione Max 1024px due/tre colonne
+**/
+
+@media only screen and (min-width:1024px) {
+
+}
+
+/**
+    Risoluzione Media 600-1024px una/due colonne
+**/
+
+@media only screen and (min-width:480px) and (max-width:1024px) {
+    #box{
+        background-color: lightblue;
+        min-width: 600px;
+    }
+    
+    #header{
+        min-width: 600px;
+    }
+    
+    h2,h3{
+        font-size:15px;
+    }
+
+    .cliente{
+        min-width: 600px;
+    }
+    
+    
+    #descrizione_aside{
+        min-width: 120px;
+    }
+    
+    #descrizione_aside ul{
+         margin: 0px 70% 0;
+    }
+    
+    
+    #descrizione_content{
+        min-width: 460px;
+        font-size: 60%;
+    }
+
+    #navigazione{
+        font-size:75%;
+        min-width: 600px;
+    }
+    
+    #footer{
+        font-size:75%;
+        min-width: 600px;
+    }
+    
+}
+
+/**
+    Risoluzione Media 480px una colonna
+**/
+
+@media only screen and (max-width:480px) {
+    #box{
+        background-color: orange;
+        min-width: 400px;
+    }
+    
+    #header{
+        min-width: 400px;
+    }
+       
+    h2,h3{
+        font-size:13px;
+    }
+    
+    #navigazione{
+        font-size: 70%;
+        min-width: 400px;
+    }
+    
+    #footer{
+        font-size: 70%;
+        min-width: 400px;
+    }
+    
+    /*
+    #descrizione_aside, #categorie, #descrizione_aside li, #descrizione_aside li a,
+    #descrizione_aside ul, #descrizione_aside ul li, #descrizione_aside ul a, .cliente
+    {   /* tecnica off-left per screen reader
+        position:absolute;
+        left:-9999px;
+    }*/
+    
+    /* barra al lato */
+    #descrizione_aside{
+        width: 40%;
+        font-size: 85%;
+        /* distanza dall'alto */
+        margin-top: 10px;
+        padding: 0;
+        margin-left : auto;
+        margin-right : auto;
+    }
+
+    /* format link */
+    #descrizione_aside li a{
+        /* altezza celle */
+        height: 30px;
+        /* distanza dall'alto del testo */
+        line-height: 32px;
+        font-size: 10px;
+    }
+
+    /* lista sottomenù */
+    #descrizione_aside ul {
+        margin: 0px 77% 0;
+    }
+
+    #descrizione_content{
+        min-width: 100%;
+        font-size: 60%;
+    }
+
 }

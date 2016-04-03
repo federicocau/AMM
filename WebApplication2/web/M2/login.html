@@ -17,8 +17,10 @@ and open the template in the editor.
         <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
     <body>
+    <!-- contenitore principale -->
     <div id="box">
-           
+        
+        <!-- header pagina -->
         <div id="header">
             <h1 class="title">Techware</h1>
         </div>
@@ -38,16 +40,23 @@ and open the template in the editor.
             <h2 class="logformtitle">Accedi</h2>
         <form name="form_login" method="GET">
             <!-- placeholder: scritta presente nel form; es. placeholder="Username" -->
-            <label for="user" class="logform">Username</label> <input name="user" id="user"  type="text">
-            <label for="password" class="logform">Password</label> <input name="password" id="password" type="password">
+            <!-- tutti i campi devono essere compilati (required) -->
+            <label for="user" class="logform">Username</label> <input name="user" id="user"  type="text" required>
+            <label for="password" class="logform">Password</label> <input name="password" id="password" type="password" required>
             <button id="login_button" type="submit">Accedi</button>
         </form>
         </div>
         
-        <!-- Qua si potrebbe inserire un eventuale footer -->
-        <div id="footer">
-            
-        </div>
+        <!-- footer -->
+        <footer>
+        <ul id="footer">
+            <!--<strong>Navigazione:</strong>-->
+            <li><a href="info.html">Chi Siamo</a></li>
+            <li><a href="info.html">Contatti</a></li> 
+        </ul>   
+        </footer>
+        
+        
     </div>
     </body>
 </html>
