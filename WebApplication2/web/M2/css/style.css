@@ -28,7 +28,7 @@ body{
     margin-top: 15px;
     margin-bottom: 100px;
     
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
     
     
 }
@@ -428,7 +428,7 @@ border-bottom-left-radius:2em;
 /**
     Cliente.html
 **/
-.cliente{
+ #cliente{
    position: relative;
   /* distanza superiore */
   top: 24px;
@@ -438,7 +438,7 @@ border-bottom-left-radius:2em;
   /*
   height: 930px;
   width: 880px;*/
-  width: 80%;
+  width: 95%;
   height: 80%;
   /*
     margin-top
@@ -447,6 +447,7 @@ border-bottom-left-radius:2em;
     margin-left
   */
   margin: 50px auto ; 
+  font-size: 15px;
 }
 
 /* Prodotti */
@@ -488,35 +489,44 @@ border-bottom-left-radius:2em;
   background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
 }
 
-/* struttura tabella */
-table{
-    width: 100%;
-    height:98%;
-    background-color: white;
-    border-collapse: collapse;
-    margin: auto;
-}
-th{
-    height: 30%;
-    width: 100%;
-    padding: 8px;
-    font-size: 15px;
-}
-
-/* alternanza di colore tra le righe */
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    /*background-color: #f5fff5;*/
-}
-
-td{
-    padding: 5px;
-    font-size: 14px;
+#cliente_title_480table{
     text-align: center;
 }
+
+/* tabella per min width 480 */
+.cliente_button_min{
+    /* dimensione e colore del bordo */
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff;  
+
+    /* larghezza bottone */
+    width: 125px;
+    /* altezza bottone */
+    height:25px;
+
+    font-size:11px;
+    /* colore scritta */
+    color:#000;
+
+    text-align:center;
+
+    /* posizione scritta all'interno del bottone */
+    padding-top:4px;
+
+    /* onmouse over appare la manina*/
+    cursor: pointer;
+
+    /*background-color: #fff;*/
+    background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+    }
+
+    .cliente_button_min:hover{
+        /*background-color: #ABABAB;*/
+      background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+    }
 
 
 /**
@@ -664,6 +674,44 @@ td{
 **/
 
 @media only screen and (min-width:1024px) {
+    /* struttura tabella */
+    table{
+        width: 100%;
+        height:98%;
+        background-color: white;
+        border-collapse: collapse;
+        margin: auto;
+    }
+    th{
+        height: 30%;
+        width: 100%;
+        padding: 8px;
+
+    }
+
+    /* alternanza di colore tra le righe */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        /*background-color: #f5fff5;*/
+    }
+
+    td{
+        padding: 5px;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+
+    #on_off_480table, #cliente_title_480table{
+        position:absolute;
+        left:-9999px;
+    }
+    
+        
+
 
 }
 
@@ -712,6 +760,41 @@ td{
     #footer{
         font-size:75%;
         min-width: 600px;
+    }
+    
+    /* struttura tabella */
+    table{
+        width: 100%;
+        height:98%;
+        background-color: white;
+        border-collapse: collapse;
+        margin: auto;
+    }
+    th{
+        height: 30%;
+        width: 100%;
+        padding: 8px;
+
+    }
+
+    /* alternanza di colore tra le righe */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        /*background-color: #f5fff5;*/
+    }
+
+    td{
+        padding: 5px;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+     #on_off_480table, #cliente_title_480table{
+        position:absolute;
+        left:-9999px;
     }
     
 }
@@ -781,5 +864,66 @@ td{
         min-width: 100%;
         font-size: 60%;
     }
+    
+    #cliente{
+        position:absolute;
+        left:-9999px;
+    }
+    
+    /* tabella per la dimensione <=480 pixel width */
+    #cliente_480table{
+       position: relative;
+      /* distanza superiore */
+      top: 24px;
 
+      /*background: #eceeee;*/
+      border: 1px solid #42464b;
+      border-radius: 6px;
+      /*
+      height: 930px;
+      width: 880px;*/
+      width: 80%;
+      height: 80%;
+      /*
+        margin-top
+        margin-right
+        margin-bottom
+        margin-left
+      */
+      /*margin: 20px auto ;*/
+      margin: 50px auto ;
+      font-size: 11px;
+    }
+    
+    table{
+        width: 100%;
+        height:98%;
+        background-color: white;
+        border-collapse: collapse;
+        margin: auto;
+        border: 1px solid gainsboro;
+    }
+    
+    th{
+        height: 160px;
+        width: 300px;
+        border: 1px solid gainsboro;
+    }
+
+    /* alternanza di colore tra le righe */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    tr:hover {
+        /*background-color: #f5fff5;*/
+    }
+
+    td{
+        width: 100px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid gainsboro;
+    }
+    
 }
