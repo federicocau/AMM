@@ -326,9 +326,10 @@ border-bottom-left-radius:2em;
 #descrizione_content{
     float: right;
     width: 78%;
-    height: 500px;
+    height: 480px;
     /* scroll interno alla pagina solo per l'asse y */
     overflow-y:auto;
+    margin-top: 5px;
 }
 
 /* barra al lato */
