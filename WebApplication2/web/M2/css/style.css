@@ -25,8 +25,8 @@ body{
     /* centra orizzontalmente quell'elemento all'interno del suo contenitore */
     margin-left : auto;
     margin-right : auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     
     /*border: 1px solid #000;*/
     
@@ -43,8 +43,36 @@ body{
     /*
     background:#e2e2e0;*/
     color: #000;
-    text-align: center;
+    text-align: left;
+    background-color: white;
     
+}
+
+.techware_img{
+    margin: 0;
+}
+
+/* link social */
+.social {
+    /*border: 1px solid #000;*/
+    float: right; 
+    margin-top: 3px;
+    margin-right: 3px;
+
+    
+    
+    
+}
+
+.social li{}
+
+.social ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.social ul li {
+    display : inline-block;
 }
 
 .title{ 
@@ -77,6 +105,7 @@ p{
     background-color: #000;
     /* dimensione del font */
     font-size:85%
+    
     
 }
 
@@ -121,7 +150,7 @@ p{
     margin-left : auto;
     margin-right : auto;
     margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
     padding: 0;
     list-style: none;
     float:left;
@@ -130,23 +159,6 @@ p{
     background-color: #000;
     /* dimensione del font */
     font-size:85%
-}
-
-.social {
-    width : 100%;
-}
-
-.social li{
-    
-}
-
-.social ul {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.social ul li {
-    display : inline-block;
 }
 
 /*
@@ -709,7 +721,7 @@ border-bottom-left-radius:2em;
     }
     th{
         height: 30%;
-        width: 100%;
+        width: 50px;
         padding: 8px;
 
     }
@@ -797,7 +809,7 @@ border-bottom-left-radius:2em;
     }
     th{
         height: 30%;
-        width: 100%;
+        width: 40px;
         padding: 8px;
 
     }
@@ -832,6 +844,17 @@ border-bottom-left-radius:2em;
     #box{
         background-color: orange;
         min-width: 380px;
+    }
+    
+    .techware_img{
+        display: block;
+        margin:0 auto;
+    }
+    
+    .social {
+        /*border: 1px solid #000;*/
+        position:absolute;
+        left:-9999px;;   
     }
     
     #header{
