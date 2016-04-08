@@ -72,6 +72,10 @@ body{
     display : inline-block;
 }
 
+.social li a:hover{
+    
+}
+
 /* formato header */
 h1,h2,h3{
     color: darkslategrey;
@@ -337,7 +341,8 @@ border-bottom-left-radius:2em;
     width: 16%;
     font-size: 85%;
     /* distanza dall'alto */
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
     float: left;
     padding: 0;
 }
@@ -875,8 +880,8 @@ border-bottom-left-radius:2em;
         /* distanza dall'alto */
         margin-top: 10px;
         padding: 0;
-        margin-left : auto;
-        margin-right : auto;
+        margin-top: 5px;
+        margin-left: 5px;
     }
 
     /* format link */
