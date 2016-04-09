@@ -102,7 +102,7 @@ p{
     display: block;
     
     /* dimensione in pixel dei bordi e relativo colore */
-    border-right: 1px solid #223;
+    /*border-right: 1px solid #223;*/
     position: relative;
 }
 
