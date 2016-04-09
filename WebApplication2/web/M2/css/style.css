@@ -190,7 +190,7 @@ p{
   border: 1px solid #42464b;
   border-radius: 6px;
   height: 270px;
-  width: 300px;
+  width: 305px;
 
 }
 
@@ -201,48 +201,41 @@ p{
     font-size: 25px;
 }
 
-/* User/Password */
-.logform{
-    margin: 12px 0 12px 29px;
-    font-weight: bold;
-    font-size: 15px;
+.login_label{
+    display: block; /* Impostiamo la label come elemento blocco */
+    line-height: 30px; /* Altezza di riga */
+    width: 80px; /* Larghezza */
 }
 
-/* User/Password login */
-#user, #password {
-  /* dimensione e colore del bordo */
-  border: 1px solid #a1a3a3;
-  /* ondulazione angoli */
-  border-radius: 4px;
-  /* ombra angoli */
-  box-shadow: 0 1px #fff;
-  /* 
-    border-box:	(contenitore))
-    The width and height properties (and min/max properties) 
-    includes content, padding and border, but not the margin
-  */
-  box-sizing: border-box;
-  /* colore scritta dentro la box */
-  color: #000;
-  /* altezza box */
-  height: 30px; 
-  /* lunghezza box  */
-  width: 240px;
-  /*
-    margin-top
-    margin-right
-    margin-bottom
-    margin-left
-  */
-  margin: 5px 0 15px 29px;
-  /* sposta la scritta predefinita dentro il form di n pixel */
-  padding-left: 15px;
-  
+.login_label, #user, #password{
+    float: left; /* Float a sinistra */
+    font-size: 14px;
+    font-weight: bold; 
+    margin: 8px 0; /* Margini */
+    margin-left: 16px;
 }
+
+#user, #password{
+    border: 1px solid #323232; /* Bordo */
+    height: 30px; /* Altezza */
+    line-height: 20px; /* Altezza di riga */
+    width: 150px; /* Larghezza */
+    padding: 0 10px; /* Padding */
+    /* dimensione e colore del bordo */   
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff; 
+    /* colore scritta dentro la box */
+    color: #000;
+}
+
+
 
 /* focus in box - Login.html, Venditore. html */
 #user:focus, #password:focus,
-#nome_oggetto:focus, #url_immagine:focus, #descrizione:focus, #prezzo:focus, #quantity:focus{
+#nome_oggetto:focus, #url_immagine:focus, #descrizione_oggetto:focus, #prezzo:focus, #quantity:focus{
     /* web transition per il focus */
     -webkit-transition: all 0.20s ease-in-out;
     /* colore on focus */
@@ -263,7 +256,7 @@ p{
   box-shadow: 0 1px #fff;  
    
   /* larghezza bottone */
-  width: 240px;
+  width: 247px;
   /* altezza bottone */
   height:30px;
   
@@ -276,7 +269,7 @@ p{
   /* posizione scritta all'interno del bottone */
   padding-top:2px;
   /*     margin-top     margin-right     margin-bottom     margin-left   */
-  margin: 5px 0 15px 29px;
+  margin: 15px 0 15px 29px;
   /* onmouse over appare la manina*/
   cursor: pointer;
   
@@ -529,7 +522,7 @@ p{
   border: 1px solid #42464b;
   border-radius: 6px;
   height: 510px;
-  width: 345px;
+  width: 370px;
   /*
     margin-top
     margin-right
@@ -545,53 +538,47 @@ p{
     font-size: 20px;
 }
 
-/* Nome oggetto, URL immagine */
 .venditore_form{
-    margin: 12px 0 12px 29px;
-    font-weight: bold;
-    font-size: 15px;
+    display: block; /* Impostiamo la label come elemento blocco */
+    line-height: 30px; /* Altezza di riga */
+    width: 95px; /* Larghezza */
 }
 
-/* dimensione delle box */
-#nome_oggetto, #url_immagine, #prezzo, #quantity{
-  /* dimensione e colore del bordo */   
-  border: 1px solid #a1a3a3;
-  /* ondulazione angoli */
-  border-radius: 4px;
-  /* ombra angoli */
-  box-shadow: 0 1px #fff; 
-
-  box-sizing: border-box;
-  /* colore scritta dentro la box */
-  color: #000;
-  /* altezza box password */
-  height: 30px; 
-  /* lunghezza box user/password */
-  width: 290px;
-  margin: 5px 0 15px 29px;
-  /* sposta la scritta predefinita dentro il form di n pixel */
-  padding-left: 15px;
+.venditore_form,
+#nome_oggetto, #url_immagine, #prezzo, #quantity, #descrizione_oggetto{
+    float: left; /* Float a sinistra */
+    font-size: 13px;
+    font-weight: bold; 
+    margin: 8px 0; /* Margini */
+    margin-left: 16px;
 }
 
-/* descrizione oggetto */
-#descrizione{
-  /* dimensione e colore del bordo */   
-  border: 1px solid #a1a3a3;
-  /* ondulazione angoli */
-  border-radius: 4px;
-  /* ombra angoli */
-  box-shadow: 0 1px #fff; 
-  box-sizing: border-box;
-  /* colore scritta dentro la box */
-  color: #000;
-  /* altezza box */
-  height: 80px;
-  /* lunghezza box */
-  width: 290px;
-  margin: 5px 0 10px 29px;
-  /* sposta la scritta predefinita dentro il form di n pixel */
-  padding-left: 15px;
-  
+#nome_oggetto, #url_immagine, #prezzo, #quantity, #descrizione_oggetto{
+    border: 1px solid #323232; /* Bordo */
+    height: 30px; /* Altezza */
+    line-height: 20px; /* Altezza di riga */
+    width: 200px; /* Larghezza */
+    padding: 0 10px; /* Padding */
+    /* dimensione e colore del bordo */   
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff; 
+    /* colore scritta dentro la box */
+    color: #000;
+}
+
+#descrizione_oggetto{
+    font-size: 12px;
+    height: 200px;
+    width: 200px;
+    /* dimensione e colore del bordo */   
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff; 
 }
 
 /* bottoni venditore */
@@ -604,7 +591,7 @@ p{
   box-shadow: 0 1px #fff;  
    
   /* larghezza bottone */
-  width: 128px;
+  width: 140px;
   /* altezza bottone */
   height:30px;
   
@@ -628,7 +615,6 @@ p{
 #venditore_insert:hover, #venditore_delete:hover{
   background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
 }
-
 
 /**
     Risoluzione Max 1024px due/tre colonne
