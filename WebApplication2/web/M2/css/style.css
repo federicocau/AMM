@@ -202,22 +202,22 @@ p{
 }
 
 .login_label{
-    display: block; /* Impostiamo la label come elemento blocco */
+    display: block;
     line-height: 30px; /* Altezza di riga */
-    width: 80px; /* Larghezza */
+    width: 80px; 
 }
 
 .login_label, #user, #password{
-    float: left; /* Float a sinistra */
+    float: left; 
     font-size: 14px;
     font-weight: bold; 
-    margin: 8px 0; /* Margini */
+    margin: 10px 0; 
     margin-left: 16px;
 }
 
 #user, #password{
-    border: 1px solid #323232; /* Bordo */
-    height: 30px; /* Altezza */
+    border: 1px solid #323232; 
+    height: 30px; 
     line-height: 20px; /* Altezza di riga */
     width: 150px; /* Larghezza */
     padding: 0 10px; /* Padding */
@@ -269,7 +269,7 @@ p{
   /* posizione scritta all'interno del bottone */
   padding-top:2px;
   /*     margin-top     margin-right     margin-bottom     margin-left   */
-  margin: 15px 0 15px 29px;
+  margin: 20px 0 15px 29px;
   /* onmouse over appare la manina*/
   cursor: pointer;
   
@@ -539,26 +539,26 @@ p{
 }
 
 .venditore_form{
-    display: block; /* Impostiamo la label come elemento blocco */
+    display: block; 
     line-height: 30px; /* Altezza di riga */
-    width: 95px; /* Larghezza */
+    width: 95px; 
 }
 
 .venditore_form,
 #nome_oggetto, #url_immagine, #prezzo, #quantity, #descrizione_oggetto{
-    float: left; /* Float a sinistra */
+    float: left; 
     font-size: 13px;
     font-weight: bold; 
-    margin: 8px 0; /* Margini */
+    margin: 8px 0; 
     margin-left: 16px;
 }
 
 #nome_oggetto, #url_immagine, #prezzo, #quantity, #descrizione_oggetto{
-    border: 1px solid #323232; /* Bordo */
-    height: 30px; /* Altezza */
-    line-height: 20px; /* Altezza di riga */
-    width: 200px; /* Larghezza */
-    padding: 0 10px; /* Padding */
+    border: 1px solid #323232; 
+    height: 30px; 
+    line-height: 20px; 
+    width: 200px; 
+    padding: 0 10px; 
     /* dimensione e colore del bordo */   
     border: 1px solid #a1a3a3;
     /* ondulazione angoli */
