@@ -27,26 +27,16 @@ body{
     margin-left : auto;
     margin-right : auto;
     margin-top: 35px;
-    margin-bottom: 55px;
-    
-    /*border: 1px solid #000;*/
-    
-    
+    margin-bottom: 55px; 
 }
 
 /* formato box header */
 #header{
     width:100%;
-    
-   /* padding:10px;*/
-   /* margin-top: 10px;*/
-    /* #21aabd */
-    /*
-    background:#e2e2e0;*/
     color: #000;
     text-align: left;
-    background-color: white;
-    
+    /* sfumatura da sinistra a destra*/
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(10,252,155,1) 100%);  
 }
 
 .techware_img{
@@ -60,8 +50,6 @@ body{
     margin-top: 3px;
     margin-right: 3px;  
 }
-
-.social li{}
 
 .social ul {
     text-align: center;
@@ -103,7 +91,7 @@ p{
 }
 
 /*
-    css <li>
+    elenchi nav
 */
 #navigazione li {
     /* dimensione dei lati */
@@ -119,7 +107,7 @@ p{
 }
 
 /*
-    padding da' la larghezza del bottone
+    link nav
 */
 #navigazione li a{
     float: left;
@@ -143,7 +131,7 @@ p{
     margin-left : auto;
     margin-right : auto;
     margin-top: 15px;
-    margin-bottom: 1px;
+    margin-bottom: 0px;
     padding: 0;
     list-style: none;
     float:left;
@@ -190,14 +178,7 @@ p{
 }
 
 /*
-border-radius:2em;
-
-is equivalent to:
-
-border-top-left-radius:2em;
-border-top-right-radius:2em;
-border-bottom-right-radius:2em;
-border-bottom-left-radius:2em;
+    format login
 */
 .login {
   position: relative;
@@ -259,17 +240,11 @@ border-bottom-left-radius:2em;
   
 }
 
-/* focus in box */
-/* Login.html*/
+/* focus in box - Login.html, Venditore. html */
 #user:focus, #password:focus,
-/* Venditore. html */
 #nome_oggetto:focus, #url_immagine:focus, #descrizione:focus, #prezzo:focus, #quantity:focus{
     /* web transition per il focus */
     -webkit-transition: all 0.20s ease-in-out;
-    -moz-transition: all 0.20s ease-in-out;
-    -ms-transition: all 0.20s ease-in-out;
-    -o-transition: all 0.20s ease-in-out;
-    
     /* colore on focus */
     box-shadow: 0 0 7px orange;
     /* rimuovo il contorno */
@@ -300,12 +275,7 @@ border-bottom-left-radius:2em;
  
   /* posizione scritta all'interno del bottone */
   padding-top:2px;
-  /*
-    margin-top
-    margin-right
-    margin-bottom
-    margin-left
-  */
+  /*     margin-top     margin-right     margin-bottom     margin-left   */
   margin: 5px 0 15px 29px;
   /* onmouse over appare la manina*/
   cursor: pointer;
@@ -458,7 +428,6 @@ border-bottom-left-radius:2em;
    position: relative;
   /* distanza superiore */
   top: 24px;
-  /*background: #eceeee;*/
   border: 1px solid #42464b;
   border-radius: 6px;
   /*
@@ -466,12 +435,6 @@ border-bottom-left-radius:2em;
   width: 880px;*/
   width: 95%;
   height: 80%;
-  /*
-    margin-top
-    margin-right
-    margin-bottom
-    margin-left
-  */
   margin: 50px auto ; 
   font-size: 15px;
 }
@@ -597,11 +560,7 @@ border-bottom-left-radius:2em;
   border-radius: 4px;
   /* ombra angoli */
   box-shadow: 0 1px #fff; 
-  /* 
-    border-box:	(contenitore))
-    The width and height properties (and min/max properties) 
-    includes content, padding and border, but not the margin
-  */
+
   box-sizing: border-box;
   /* colore scritta dentro la box */
   color: #000;
@@ -609,12 +568,6 @@ border-bottom-left-radius:2em;
   height: 30px; 
   /* lunghezza box user/password */
   width: 290px;
-  /*
-    margin-top
-    margin-right
-    margin-bottom
-    margin-left
-  */
   margin: 5px 0 15px 29px;
   /* sposta la scritta predefinita dentro il form di n pixel */
   padding-left: 15px;
@@ -628,11 +581,6 @@ border-bottom-left-radius:2em;
   border-radius: 4px;
   /* ombra angoli */
   box-shadow: 0 1px #fff; 
-  /* 
-    border-box:	(contenitore))
-    The width and height properties (and min/max properties) 
-    includes content, padding and border, but not the margin
-  */
   box-sizing: border-box;
   /* colore scritta dentro la box */
   color: #000;
@@ -640,12 +588,6 @@ border-bottom-left-radius:2em;
   height: 80px;
   /* lunghezza box */
   width: 290px;
-  /*
-    margin-top
-    margin-right
-    margin-bottom
-    margin-left
-  */
   margin: 5px 0 10px 29px;
   /* sposta la scritta predefinita dentro il form di n pixel */
   padding-left: 15px;
@@ -674,12 +616,6 @@ border-bottom-left-radius:2em;
  
   /* posizione scritta all'interno del bottone */
   padding-top:2px;
-  /*
-    margin-top
-    margin-right
-    margin-bottom
-    margin-left
-  */
   margin: 5px 0 15px 29px;
   /* onmouse over appare la manina*/
   cursor: pointer;
@@ -690,7 +626,6 @@ border-bottom-left-radius:2em;
 }
 
 #venditore_insert:hover, #venditore_delete:hover{
-    /*background-color: #ABABAB;*/
   background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
 }
 
@@ -725,9 +660,6 @@ border-bottom-left-radius:2em;
         background-color: #f2f2f2;
     }
 
-    tr:hover {
-        /*background-color: #f5fff5;*/
-    }
 
     td{
         padding: 5px;
@@ -755,6 +687,7 @@ border-bottom-left-radius:2em;
     
     #header{
         min-width: 600px;
+        background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(10,252,155,1) 100%);
     }
     
     h2,h3{
@@ -842,13 +775,13 @@ border-bottom-left-radius:2em;
     }
     
     .social {
-        /*border: 1px solid #000;*/
         position:absolute;
         left:-9999px;;   
     }
     
     #header{
         min-width: 380px;
+        background: white;
     }
        
     h2,h3{
@@ -864,15 +797,7 @@ border-bottom-left-radius:2em;
         font-size: 70%;
         min-width: 380px;
     }
-    
-    /*
-    #descrizione_aside, #categorie, #descrizione_aside li, #descrizione_aside li a,
-    #descrizione_aside ul, #descrizione_aside ul li, #descrizione_aside ul a, .cliente
-    {   /* tecnica off-left per screen reader
-        position:absolute;
-        left:-9999px;
-    }*/
-    
+
     /* barra al lato */
     #descrizione_aside{
         width: 40%;
@@ -904,6 +829,7 @@ border-bottom-left-radius:2em;
     }
     
     #cliente{
+        /* tecnica off-left per screen reader */
         position:absolute;
         left:-9999px;
     }
@@ -913,24 +839,13 @@ border-bottom-left-radius:2em;
        position: relative;
       /* distanza superiore */
       top: 24px;
-
-      /*background: #eceeee;*/
       border: 1px solid #42464b;
       border-radius: 6px;
-      /*
-      height: 930px;
-      width: 880px;*/
       width: 95%;
       height: 80%;
-      /*
-        margin-top
-        margin-right
-        margin-bottom
-        margin-left
-      */
-      /*margin: 20px auto ;*/
       margin: 50px auto ;
       font-size: 11px;
+      font-weight: bold;
     }
     
     table{
@@ -953,13 +868,9 @@ border-bottom-left-radius:2em;
         background-color: #f2f2f2;
     }
     
-    tr:hover {
-        /*background-color: #f5fff5;*/
-    }
-
     td{
         width: 100px;
-        padding: 5px;
+        padding: 3px;
         text-align: center;
         border: 1px solid gainsboro;
     }
