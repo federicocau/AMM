@@ -196,7 +196,7 @@ p{
 
 /* Accedi */
 .logformtitle{
-    margin: 12px 0 12px 29px;
+    margin: 12px 0 12px 110px;
     text-align: left;
     font-size: 25px;
 }
@@ -533,7 +533,7 @@ p{
 }
 
 .venditore_title{
-    margin: 12px 0 12px 29px;
+    margin: 12px 0 12px 50px;
     text-align: left;
     font-size: 20px;
 }
@@ -578,7 +578,9 @@ p{
     /* ondulazione angoli */
     border-radius: 4px;
     /* ombra angoli */
-    box-shadow: 0 1px #fff; 
+    box-shadow: 0 1px #fff;
+    /* la box non puo' essere ridimensionata */
+    resize: none;
 }
 
 /* bottoni venditore */
