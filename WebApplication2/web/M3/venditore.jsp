@@ -44,7 +44,7 @@ and open the template in the editor.
             <label for="quantity" class="venditore_form">Quantità  </label> <input name="quantity" id="quantity" type="number" min="0" required/>
             
             <input id="venditore_insert" type="submit" value="Inserisci"/>
-            <input id="venditore_delete" type="submit" value="Pulisci campi"/>
+            <!--<input id="venditore_delete" type="submit" value="Pulisci campi"/>-->
         </form>
        </div>
         

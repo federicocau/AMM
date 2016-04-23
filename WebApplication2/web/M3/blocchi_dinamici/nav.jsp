@@ -5,9 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <body>
         <nav>
             <ul id="navigazione">   
             <li><a href="descrizione.jsp">Descrizione</a></li>
@@ -16,5 +13,3 @@
             <li><a href="venditore.jsp">Venditore</a></li>
             </ul>
         </nav>
-    </body>
-</html>

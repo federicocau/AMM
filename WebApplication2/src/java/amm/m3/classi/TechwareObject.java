@@ -10,11 +10,13 @@ package amm.m3.classi;
  * @author Admin
  */
 public class TechwareObject {
-    private String nome;
-    private String url;
-    private String descrizione;
-    private int prezzo;
-    private int quantita;
+    protected int id;
+    protected String categoria;
+    protected String nome;
+    protected String url;
+    protected String descrizione;
+    protected int prezzo;
+    protected int quantita;
 
     /**
      * @return the nome
@@ -84,5 +86,33 @@ public class TechwareObject {
      */
     public void setQuantita(int quantita) {
         this.quantita = quantita;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the categoria
+     */
+    public String getCategoria() {
+        return categoria;
+    }
+
+    /**
+     * @param categoria the categoria to set
+     */
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }

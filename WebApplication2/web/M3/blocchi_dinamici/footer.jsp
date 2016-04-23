@@ -5,13 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
         <footer>
         <ul id="footer">
             <!--<strong>Navigazione:</strong>-->
@@ -20,7 +13,5 @@
             <li><a href="info.html">Privacy Policy</a></li>
         </ul>
         </footer>
-        
+        <!-- per pulire i vari float -->
         <div style="clear: both;"></div>
-    </body>
-</html>

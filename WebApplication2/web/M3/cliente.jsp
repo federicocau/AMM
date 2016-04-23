@@ -42,7 +42,16 @@ and open the template in the editor.
             <th>Prezzo</th>
             <th>Aggiungi al carrello</th>
             </tr>
-            <!-- riga 1, per ogni td compilo una colonna -->
+            <c:forEach var="oggetto" items="${listaOggetti}">
+                <tr>
+                <td>${oggetto.nome}</td>
+                <td>${oggetto.url}</td>
+                <td>${oggetto.quantita}</td>
+                <td>${oggetto.prezzo}</td>
+                <button class="cliente_button" onclick="location.href='cliente.html'">Aggiungi al carrello</button>        
+                </tr>
+            </c:forEach>
+            <!--
             <tr>
                 <td>Scheda Madre MSI Z97 Gaming 5 Nero</td>
                 <td>
@@ -56,7 +65,7 @@ and open the template in the editor.
             </tr>
             
             <tr>
-            <!-- riga 2, per ogni td compilo una colonna -->
+
                 <td>Scheda Video Msi GTX N750, 2 GB GDDR5, PCIe, Nero/Antracite</td>
                 <td>
                     <img title="scheda_video" alt="scheda_video" src="img/scheda_video.jpg" width="140" height="140">
@@ -69,7 +78,7 @@ and open the template in the editor.
             </tr>
             
             <tr>
-            <!-- riga 3, per ogni td compilo una colonna -->
+
                 <td>2 Memorie RAM HyperX FURY Kit 8GB, 2133MHz, DDR4, Non-ECC CL14 DIMM, Nero/Antracite, Compatibili con Skylake</td>
                 <td>
                     <img title="RAM" alt="RAM" src="img/ram.jpg" width="140" height="140">
@@ -82,7 +91,7 @@ and open the template in the editor.
             </tr>
             
             <tr>
-            <!-- riga 4, per ogni td compilo una colonna -->
+
                 <td>Intel Processore Core i5-6600K (Skylake) Quad-Core</td>
                 <td>
                     <img title="processore" alt="processore" src="img/process.jpg" width="140" height="140">
@@ -95,7 +104,7 @@ and open the template in the editor.
             </tr>
             
             <tr>
-            <!-- riga 5, per ogni td compilo una colonna -->
+
                 <td> Alimentatore Corsair VS650 ATX Serie VS da 650 Watt</td>
                 <td>
                     <img title="alimentatore" alt="alimentatore" src="img/alim.jpg" width="140" height="140">
@@ -106,6 +115,7 @@ and open the template in the editor.
                     <button class="cliente_button" onclick="location.href='cliente.html'">Aggiungi al carrello</button>
                 </td>
             </tr>
+            -->
     </table>
     </div>
         

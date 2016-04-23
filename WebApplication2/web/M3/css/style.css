@@ -12,8 +12,8 @@ and open the template in the editor.
     Login.html
 */
 body{
-    /*background: #e2e2e0;*/
-    background: -webkit-gradient(linear, left top, left bottom, from(#3378a5), to(#ffffff));
+    background: #e2e2e0;
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#3378a5), to(#ffffff));*/
     font-family: "Open Sans", Arial, sans-serif;
     color: black;
 }
@@ -36,7 +36,7 @@ body{
     color: #000;
     text-align: left;
     /* sfumatura da sinistra a destra*/
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(10,252,155,1) 100%);  
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 44%, rgba(245,119,10,1) 73%, rgba(245,119,10,1) 100%); 
 }
 
 .techware_img{
@@ -203,7 +203,7 @@ p{
 
 .login_label{
     display: block;
-    line-height: 30px; /* Altezza di riga */
+    line-height: 1px; /* Altezza di riga */
     width: 80px; 
 }
 
@@ -212,14 +212,14 @@ p{
     font-size: 14px;
     font-weight: bold; 
     margin: 10px 0; 
-    margin-left: 16px;
+    margin-left: 22px;
 }
 
 #user, #password{
     border: 1px solid #323232; 
     height: 30px; 
     line-height: 20px; /* Altezza di riga */
-    width: 150px; /* Larghezza */
+    width: 240px; /* Larghezza */
     padding: 0 10px; /* Padding */
     /* dimensione e colore del bordo */   
     border: 1px solid #a1a3a3;
@@ -229,6 +229,9 @@ p{
     box-shadow: 0 1px #fff; 
     /* colore scritta dentro la box */
     color: #000;
+    
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 
@@ -256,11 +259,11 @@ p{
   box-shadow: 0 1px #fff;  
    
   /* larghezza bottone */
-  width: 247px;
+  width: 260px;
   /* altezza bottone */
   height:30px;
   
-  font-size:15px;
+  font-size:14px;
   /* colore scritta */
   color:#000;
   
@@ -269,7 +272,7 @@ p{
   /* posizione scritta all'interno del bottone */
   padding-top:2px;
   /*     margin-top     margin-right     margin-bottom     margin-left   */
-  margin: 20px 0 15px 29px;
+  margin: 10px 0 20px 20px;
   /* onmouse over appare la manina*/
   cursor: pointer;
   
@@ -521,8 +524,8 @@ p{
   background: #eceeee;
   border: 1px solid #42464b;
   border-radius: 6px;
-  height: 510px;
-  width: 370px;
+  height: 630px;
+  width: 340px;
   /*
     margin-top
     margin-right
@@ -549,15 +552,17 @@ p{
     float: left; 
     font-size: 13px;
     font-weight: bold; 
-    margin: 8px 0; 
-    margin-left: 16px;
+    /*margin: 8px 0; */
+    margin-left: 37px;
+    margin-right: 37px;
+
 }
 
 #nome_oggetto, #url_immagine, #prezzo, #quantity, #descrizione_oggetto{
     border: 1px solid #323232; 
     height: 30px; 
-    line-height: 20px; 
-    width: 200px; 
+    line-height: 10px; 
+    width: 240px; 
     padding: 0 10px; 
     /* dimensione e colore del bordo */   
     border: 1px solid #a1a3a3;
@@ -570,9 +575,9 @@ p{
 }
 
 #descrizione_oggetto{
-    font-size: 12px;
+    font-size: 14px;
     height: 200px;
-    width: 200px;
+    width: 240px;
     /* dimensione e colore del bordo */   
     border: 1px solid #a1a3a3;
     /* ondulazione angoli */
@@ -581,6 +586,9 @@ p{
     box-shadow: 0 1px #fff;
     /* la box non puo' essere ridimensionata */
     resize: none;
+    padding-top: 10px; /* distanza interna box */
+    line-height: 15px; /* distanza tra riga e riga */
+    
 }
 
 /* bottoni venditore */
@@ -593,11 +601,11 @@ p{
   box-shadow: 0 1px #fff;  
    
   /* larghezza bottone */
-  width: 140px;
+  width: 260px;
   /* altezza bottone */
   height:30px;
   
-  font-size:15px;
+  font-size:14px;
   /* colore scritta */
   color:#000;
   
@@ -605,7 +613,7 @@ p{
  
   /* posizione scritta all'interno del bottone */
   padding-top:2px;
-  margin: 5px 0 15px 29px;
+  margin: 20px 37px 20px 37px;
   /* onmouse over appare la manina*/
   cursor: pointer;
   
@@ -675,7 +683,7 @@ p{
     
     #header{
         min-width: 600px;
-        background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(10,252,155,1) 100%);
+        background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(245,119,10,1) 73%, rgba(245,119,10,1) 100%);
     }
     
     h2,h3{
@@ -789,7 +797,7 @@ p{
         font-size: 70%;
         min-width: 380px;
     }
-
+   
     /* barra al lato */
     #descrizione_aside{
         width: 40%;

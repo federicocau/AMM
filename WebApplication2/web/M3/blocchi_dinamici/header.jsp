@@ -5,9 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <body>
+
         <header id="header">   
         <div class="social">
         <ul>   
@@ -33,5 +31,3 @@
              <img title="techware" alt="techware" src="img/Techware.jpg" width="332" height="130" class="techware_img">
          </div>
        </header>
-    </body>
-</html>
