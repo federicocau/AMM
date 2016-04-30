@@ -34,7 +34,7 @@ and open the template in the editor.
         <h3>Bentornato, ${cliente.nome} ${cliente.cognome} (${cliente.tipo}) - Saldo: ${cliente.conto}€ </h3> 
      
         <!-- Tabella che contiene: nome, foto, quantità e prezzo dei vari prodotti in vendita -->
-        <form method="post" action="Compra_oggetto">
+
         <div id="cliente">
         <h1 class="cliente_title">Carrello</h1>
         <table>
@@ -53,8 +53,7 @@ and open the template in the editor.
                 <td><button class="cliente_button" type="Submit" onclick="location.href='Carrello?oggettoId=${oggetto.id}'">Compra</button> </td>
                 </tr>    
         </table>
-    </div>
-    </form>
+         </div>
         
         <div id="cliente_480table">
             <h1 id="cliente_title_480table">Prodotti</h1>

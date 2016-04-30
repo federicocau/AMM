@@ -54,7 +54,7 @@ public class TechwareObjFactory {
         
         // Oggetto 3 
         TechwareObject oggetto_3 = new TechwareObject();
-        oggetto_2.setId(2);
+        oggetto_3.setId(2);
         oggetto_3.setCategoria("SchedaMadre");
         oggetto_3.setNome("Scheda Madre UltraX");
         oggetto_3.setUrl("img/scheda_madre.jpg");
@@ -62,6 +62,28 @@ public class TechwareObjFactory {
         oggetto_3.setPrezzo(110);
         oggetto_3.setQuantita(2);
         listaOggetti.add(oggetto_3);
+        
+        // Oggetto 4
+        TechwareObject oggetto_4 = new TechwareObject();
+        oggetto_4.setId(3);
+        oggetto_4.setCategoria("Alimentatore");
+        oggetto_4.setNome("Alimentatore Corsair VS650");
+        oggetto_4.setUrl("img/alim.jpg");
+        oggetto_4.setDescrizione("Test alimentatore");
+        oggetto_4.setPrezzo(35);
+        oggetto_4.setQuantita(20);
+        listaOggetti.add(oggetto_4);
+        
+        // Oggetto 5
+        TechwareObject oggetto_5 = new TechwareObject();
+        oggetto_5.setId(4);
+        oggetto_5.setCategoria("SchedaVideo");
+        oggetto_5.setNome("Scheda Video Msi");
+        oggetto_5.setUrl("img/scheda_video.jpg");
+        oggetto_5.setDescrizione("Test Scheda video");
+        oggetto_5.setPrezzo(140);
+        oggetto_5.setQuantita(18);
+        listaOggetti.add(oggetto_5);
         
         // Venditore
         Venditore vendor_1 = new Venditore();
