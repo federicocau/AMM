@@ -38,14 +38,7 @@ public class Carrello extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        /*if(HttpSession.getAttribute("loggedIn")!= null && HttpSession.getAttribute("loggedIn").equals(true)){
-            // utente utenticato
-            if(request.getParameter("Submit") != null){
-                
-                HttpSession.setAttribute("id", "");
-            }
-        }*/
-        
+  
         HttpSession HttpSession = request.getSession();
         int id = Integer.parseInt(request.getParameter("oggettoId")); // valore id alunno inserito nell'url controllare se è diverso da null
         request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id));

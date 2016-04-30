@@ -30,7 +30,7 @@ and open the template in the editor.
     <div id="box">
         
         <%@ include file="blocchi_dinamici/header.jsp" %>
-        <%@ include file="blocchi_dinamici/nav.jsp" %>
+        <%@ include file="blocchi_dinamici/nav_logged.jsp" %>
         <h3>Bentornato, ${cliente.nome} ${cliente.cognome} (${cliente.tipo}) - Saldo: ${cliente.conto}€ </h3> 
      
         <!-- Tabella che contiene: nome, foto, quantità e prezzo dei vari prodotti in vendita -->
@@ -50,7 +50,7 @@ and open the template in the editor.
                 <td><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></td>
                 <td>${oggetto.quantita}</td>
                 <td>${oggetto.prezzo}€</td>
-                <td><button class="cliente_button" type="Submit" onclick="location.href='Carrello?oggettoPrezzo=${oggetto.id}'">Compra</button> </td>
+                <td><button class="cliente_button" type="Submit" onclick="location.href='Carrello?oggettoId=${oggetto.id}'">Compra</button> </td>
                 </tr>    
         </table>
     </div>

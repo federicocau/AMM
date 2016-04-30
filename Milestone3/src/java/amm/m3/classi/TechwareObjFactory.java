@@ -35,7 +35,7 @@ public class TechwareObjFactory {
         oggetto_1.setId(0);
         oggetto_1.setCategoria("RAM");
         oggetto_1.setNome("RAM 4GB DDR3 Hyper");
-        oggetto_1.setUrl("http://mla-s2-p.mlstatic.com/memoria-ram-kingston-hyperx-4gb-1600mhz-ddr3-16983-MLA20130684328_072014-F.jpg");
+        oggetto_1.setUrl("img/ram.jpg");
         oggetto_1.setDescrizione("Test ram");
         oggetto_1.setPrezzo(50);
         oggetto_1.setQuantita(5);  
@@ -44,10 +44,10 @@ public class TechwareObjFactory {
         // Oggetto 2
         TechwareObject oggetto_2 = new TechwareObject();
         oggetto_2.setId(1);
-        oggetto_2.setCategoria("SSD");
-        oggetto_2.setNome("SSD Samsung 500GB");
-        oggetto_2.setUrl("http://ecx.images-amazon.com/images/I/419p%2BD3kufL.jpg");
-        oggetto_2.setDescrizione("Test SSD");
+        oggetto_2.setCategoria("Processore");
+        oggetto_2.setNome("Processore Intel i5");
+        oggetto_2.setUrl("img/process.jpg");
+        oggetto_2.setDescrizione("Test Processore");
         oggetto_2.setPrezzo(80);
         oggetto_2.setQuantita(3);
         listaOggetti.add(oggetto_2);
@@ -55,10 +55,10 @@ public class TechwareObjFactory {
         // Oggetto 3 
         TechwareObject oggetto_3 = new TechwareObject();
         oggetto_2.setId(2);
-        oggetto_3.setCategoria("Processore");
-        oggetto_3.setNome("Processore Intel Core i7");
-        oggetto_3.setUrl("http://images.banzaicommerce.it/nobrand/0/HRes/362/101448362/STD101448362-1.jpg");
-        oggetto_3.setDescrizione("Test Processore");
+        oggetto_3.setCategoria("SchedaMadre");
+        oggetto_3.setNome("Scheda Madre UltraX");
+        oggetto_3.setUrl("img/scheda_madre.jpg");
+        oggetto_3.setDescrizione("Test scheda_madre");
         oggetto_3.setPrezzo(110);
         oggetto_3.setQuantita(2);
         listaOggetti.add(oggetto_3);
