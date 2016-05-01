@@ -1,2 +1,1 @@
 # AMM_GruppoA
-AMM
