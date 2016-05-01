@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package amm.m3.classi;
-
+  
 import java.util.ArrayList;
 
 /**
@@ -102,7 +102,7 @@ public class TechwareObjFactory {
         listaVenditori.add(vendor_1);
         
         
-        // Cliente
+        // Cliente 1
         Cliente client_1 = new Cliente();
         client_1.setId(1);
         client_1.setUsername("client");
@@ -111,11 +111,33 @@ public class TechwareObjFactory {
         client_1.setCognome("Spano");
         client_1.setId(0);
         client_1.setTipo("cliente");
-        client_1.setConto(300.50);
+        client_1.setConto(8000);
+        /* 
+            per ora gli utenti loggati vedono tutti gli oggetti presenti nel sistema;
+            si potrebbe fare in modo che nella descrizione appaiano tutti gli oggetti del sistema
+            e che quando si è loggati col cliente appaiano solo gli oggetti messi nel carrello
+            o in una specie di lista desideri
+        */
+        
         ArrayList<TechwareObject> arrayTechwareObjClient_1 = new ArrayList<TechwareObject>();
         arrayTechwareObjClient_1.add(oggetto_3);
         client_1.setOggettiDaAcquistare(arrayTechwareObjClient_1);
         listaClienti.add(client_1);
+        
+        // Cliente 2
+        Cliente client_2 = new Cliente();
+        client_2.setId(1);
+        client_2.setUsername("client2");
+        client_2.setPassword("2");
+        client_2.setNome("Luca");
+        client_2.setCognome("Borgia");
+        client_2.setId(1);
+        client_2.setTipo("cliente");
+        client_2.setConto(400);
+        ArrayList<TechwareObject> arrayTechwareObjClient_2 = new ArrayList<TechwareObject>();
+        arrayTechwareObjClient_2.add(oggetto_4);
+        client_2.setOggettiDaAcquistare(arrayTechwareObjClient_2);
+        listaClienti.add(client_2);
 
     }
      

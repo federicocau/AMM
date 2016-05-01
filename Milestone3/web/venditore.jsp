@@ -34,7 +34,7 @@ and open the template in the editor.
         <%@ include file="blocchi_dinamici/nav_logged.jsp" %>
         <c:choose>
         <c:when test="${vendor_loggedin && !inserito}">
-         <h3>Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3> 
+         <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3> 
                     
 
     
@@ -60,6 +60,7 @@ and open the template in the editor.
         </c:when>
         
         <c:when test="${vendor_loggedin && inserito}">
+        <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3>
         <div id="cliente">
         <h2 class="cliente_title">Oggetto inserito con successo</h2>
         <table>

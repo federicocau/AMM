@@ -194,6 +194,16 @@ p{
 
 }
 
+/* stampa credenziali cliente/venditore */
+.user_stats{
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  padding-top: 40px;
+  padding-bottom: 0px;
+  bottom: 10px;
+}
+
 /*
     format error login
 */
@@ -477,6 +487,20 @@ p{
 .cliente_title{
     text-align: center;
     font-size: 23px;
+}
+
+/* messaggio acquisto oggetto */
+.cliente_buy_success{
+    text-align: center;
+    font-size: 16px;
+    color: green;
+}
+
+/* messaggio acquisto oggetto */
+.cliente_buy_failed{
+    text-align: center;
+    font-size: 16px;
+    color:#DC143C;
 }
 
 .cliente_button{
@@ -787,6 +811,7 @@ p{
         padding: 5px;
         font-size: 14px;
         text-align: center;
+        font-weight: bold;
     }
     
      #on_off_480table, #cliente_title_480table{
@@ -804,6 +829,13 @@ p{
     #box{
         background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#5678a5));
         min-width: 380px;
+    }
+    
+    /* stampa credenziali cliente/venditore */
+    .user_stats{
+
+      font-size: 14px;
+
     }
     
     .techware_img{

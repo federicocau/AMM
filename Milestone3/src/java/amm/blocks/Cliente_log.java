@@ -5,6 +5,7 @@
  */
 package amm.blocks;
 
+import amm.m3.classi.SaldoClientiVenditori;
 import amm.m3.classi.TechwareObjFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,7 +45,7 @@ public class Cliente_log extends HttpServlet {
         {
             request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
             request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getSellingObjectList());
-            boolean selezionato = false;
+            request.setAttribute("selezionato", false);
             
             // se è stato cliccato un oggetto prelevo il suo id 
             if(request.getParameter("oggettoId") != null)
@@ -55,6 +56,39 @@ public class Cliente_log extends HttpServlet {
                 request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
             }
             
+            ///////////////// new code start
+            if(request.getParameter("oggettoId_buy") != null)
+            {
+                request.setAttribute("selezionato", true);
+                int id = Integer.parseInt(request.getParameter("oggettoId_buy"));
+                request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id));
+                request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
+                
+                // setto l'id utente
+                int id_cliente = (int)HttpSession.getAttribute("id");
+                // prendo il conto del cliente, il prezzo e la quantità dell'oggetto
+                int quantità = TechwareObjFactory.getInstance().getObjectById(id).getQuantita();
+                double conto = TechwareObjFactory.getInstance().getCliente(id_cliente).getConto();
+                double prezzo = TechwareObjFactory.getInstance().getObjectById(id).getPrezzo();
+
+                if(SaldoClientiVenditori.Compra(conto,prezzo) && (quantità > 0))
+                {
+                    request.setAttribute("comprato", true);
+                    double conto_attuale = conto - prezzo;
+                    // modifico il conto del cliente e diminuisco la quantità di 1 dell'oggetto
+                    TechwareObjFactory.getInstance().getCliente(id_cliente).setConto(conto_attuale);
+                    TechwareObjFactory.getInstance().getObjectById(id).setQuantita(quantità -1);      
+                }
+
+                else
+                {   
+                    if(quantità <= 0)
+                      request.setAttribute("oggetto_esaurito", true); 
+                    else
+                      request.setAttribute("credito_insufficiente", true);
+                }
+            }
+            ///////////////// new code end
             request.getRequestDispatcher("cliente.jsp").forward(request , response);
         }
         

@@ -38,7 +38,8 @@ and open the template in the editor.
         <%@ include file="blocchi_dinamici/nav_logged.jsp" %>
         <c:choose>
         <c:when test="${client_loggedin && !selezionato}">
-        <h3>Bentornato, ${cliente.nome} ${cliente.cognome} (${cliente.tipo}) - Saldo: ${cliente.conto}€ </h3> 
+        <!-- pagina cliente con lista oggetti -->
+        <h3 class="user_stats">Bentornato, ${cliente.nome} ${cliente.cognome} (${cliente.tipo}) - Saldo: ${cliente.conto}€ </h3> 
      
         <!-- Tabella che contiene: nome, foto, quantità e prezzo dei vari prodotti in vendita -->
         <div id="cliente">
@@ -52,6 +53,7 @@ and open the template in the editor.
             <th>Aggiungi al carrello</th>
             </tr>
             <c:forEach var="oggetto" items="${listaOggetti}">
+                <c:if test="${oggetto.quantita > 0}">
                 <tr>
                 <td>${oggetto.nome}</td>
                 <td><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></td>
@@ -59,6 +61,7 @@ and open the template in the editor.
                 <td>${oggetto.prezzo}€</td>
                 <td><button class="cliente_button" type="Submit" onclick="location.href='Cliente_log?oggettoId=${oggetto.id}'">Aggiungi al carrello</button> </td>
                 </tr>
+                </c:if>
             </c:forEach>       
         </table>
     </div>
@@ -67,6 +70,7 @@ and open the template in the editor.
             <h1 id="cliente_title_480table">Prodotti</h1>
             <table id="on_off_480table">
                 <c:forEach var="oggetto" items="${listaOggetti}">
+                <c:if test="${oggetto.quantita > 0}">
                 <tr>
                 <th rowspan="4"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></th>
                 <td>Nome: ${oggetto.nome}</td>
@@ -80,13 +84,29 @@ and open the template in the editor.
                 <tr>
                 <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId=${oggetto.id}'">Aggiungi al carrello</button></td>
                 </tr>
+                </c:if>
                 </c:forEach>    
             </table>
         </div>
         </c:when>
         
-        <c:when test="${client_loggedin && selezionato}">
-        <div id="cliente">
+
+        <c:when test="${client_loggedin && selezionato}">   
+        <!-- pagina cliente con oggetto selezionato dalla lista oggetti -->
+        <h3 class="user_stats">Bentornato, ${cliente.nome} ${cliente.cognome} (${cliente.tipo}) - Saldo: ${cliente.conto}€ </h3>
+        <c:if test="${comprato}">
+            <h1 class="cliente_buy_success">Oggetto acquistato con successo!</h1> 
+        </c:if>
+        
+        <c:if test="${oggetto_esaurito}">
+            <h1 class="cliente_buy_failed">Errore: oggetto terminato!</h1> 
+        </c:if>
+        
+        <c:if test="${credito_insufficiente}">
+            <h1 class="cliente_buy_failed">Errore: credito insufficiente!</h1> 
+        </c:if>
+      
+        <div id="cliente">    
         <h1 class="cliente_title">Carrello</h1>
         <table>
             <tr>
@@ -101,7 +121,7 @@ and open the template in the editor.
                 <td><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></td>
                 <td>${oggetto.quantita}</td>
                 <td>${oggetto.prezzo}€</td>
-                <td><button class="cliente_button" type="Submit" onclick="location.href='Cliente_log?oggettoId=${oggetto.id}'">Compra</button> </td>
+                <td><button class="cliente_button" type="Submit" onclick="location.href='Cliente_log?oggettoId_buy=${oggetto.id}'">Compra</button> </td>
                 </tr>    
         </table>
          </div>
@@ -120,17 +140,18 @@ and open the template in the editor.
                 <td>Prezzo: ${oggetto.prezzo}€</td>
                 </tr>
                 <tr>
-                <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId=${oggetto.id}'">Compra</button></td>
+                <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId_buy=${oggetto.id}'">Compra</button></td>
                 </tr>
             </table>
         </div>    
             
         </c:when>
-        
+ 
         <c:when test="${!client_loggedin}">
             <h3 class="accessonegato">Accesso negato, verrai reindirizzato alla pagina di login.</h3> 
             <meta http-equiv="refresh" content="1.5;url=login.jsp">
         </c:when>
+            
         </c:choose>
     
    <%@ include file="blocchi_dinamici/footer.jsp" %> 
