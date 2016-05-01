@@ -35,6 +35,8 @@ public class Cliente_log extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        // cliente.jsp attraverso url
+        request.setAttribute("from_session", true);
         HttpSession HttpSession = request.getSession(); // creiamo la nuova sessione
         if(HttpSession.getAttribute("client_loggedin")!= null && 
            HttpSession.getAttribute("client_loggedin").equals(true) &&
@@ -42,14 +44,27 @@ public class Cliente_log extends HttpServlet {
         {
             request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
             request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getSellingObjectList());
+            boolean selezionato = false;
+            
+            // se è stato cliccato un oggetto prelevo il suo id 
+            if(request.getParameter("oggettoId") != null)
+            {
+                request.setAttribute("selezionato", true);
+                int id = Integer.parseInt(request.getParameter("oggettoId"));
+                request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id));
+                request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
+            }
+            
             request.getRequestDispatcher("cliente.jsp").forward(request , response);
         }
         
+        // sessione attiva col venditore
         else if(HttpSession.getAttribute("vendor_loggedin")!= null){
             request.setAttribute("vendor_on_client", true);
             request.getRequestDispatcher("login.jsp").forward(request , response);
         }
         
+        // nessuna sessione, click su cliente
         else{    
             request.setAttribute("client_click", true);
             request.getRequestDispatcher("login.jsp").forward(request , response);

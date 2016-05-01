@@ -27,10 +27,13 @@ and open the template in the editor.
 
     <!-- contenitore principale -->
     <div id="box"> 
+        <c:if test="${!from_session}">
+            <meta http-equiv="refresh" content="0;url=Venditore_log">
+        </c:if>
         <%@ include file="blocchi_dinamici/header.jsp" %>
         <%@ include file="blocchi_dinamici/nav_logged.jsp" %>
         <c:choose>
-        <c:when test="${vendor_loggedin}">
+        <c:when test="${vendor_loggedin && !inserito}">
          <h3>Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3> 
                     
 
@@ -41,7 +44,7 @@ and open the template in the editor.
         -->
         <div class="venditore">
         <h3 class="venditore_title">Inserisci un nuovo oggetto</h3>
-        <form method="post" action="Inserisci_oggetto">
+        <form method="post" action="Venditore_log">
             <input type="hidden" name="cmd" value="oggetto">
             <!-- tutti i campi devono essere compilati (required) -->
             <label for="nome_oggetto" class="venditore_form">Nome oggetto</label> <input name="nome_oggetto" id="nome_oggetto" type="text" required/>
@@ -54,6 +57,44 @@ and open the template in the editor.
             <!--<input id="venditore_delete" type="submit" value="Pulisci campi"/>-->
         </form>
        </div>   
+        </c:when>
+        
+        <c:when test="${vendor_loggedin && inserito}">
+        <div id="cliente">
+        <h2 class="cliente_title">Oggetto inserito con successo</h2>
+        <table>
+            <tr>
+            <th>Nome</th>
+            <th>Foto</th>
+            <th>Descrizione</th>
+            <th>Quantità</th>
+            <th>Prezzo</th>
+            </tr>
+                <tr>
+                <td>${oggetto.nome}</td>
+                <td><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></td>
+                <td>${oggetto.descrizione}</td>
+                <td>${oggetto.quantita}</td>
+                <td>${oggetto.prezzo}€</td>
+                </tr>
+        </table>
+       </div>
+       
+       <div id="cliente_480table">
+            <h1 id="cliente_title_480table">Oggetto inserito con successo</h1>
+            <table id="on_off_480table">
+                <tr>
+                <th rowspan="4"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></th>
+                <td>Nome: ${oggetto.nome}</td>
+                </tr>
+                <tr>
+                <td>Quantità: ${oggetto.quantita}</td>
+                </tr>
+                <tr>
+                <td>Prezzo: ${oggetto.prezzo}€</td>
+                </tr> 
+            </table>
+        </div>
         </c:when>
         
         <c:when test="${!vendor_loggedin}">

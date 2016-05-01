@@ -28,11 +28,16 @@ and open the template in the editor.
     <body>
     <!-- contenitore principale -->
     <div id="box">
+        <c:if test="${!from_session}">
+            <meta http-equiv="refresh" content="0;url=Cliente_log">
+        </c:if>
+        
+        
         
         <%@ include file="blocchi_dinamici/header.jsp" %>
         <%@ include file="blocchi_dinamici/nav_logged.jsp" %>
         <c:choose>
-        <c:when test="${client_loggedin}">
+        <c:when test="${client_loggedin && !selezionato}">
         <h3>Bentornato, ${cliente.nome} ${cliente.cognome} (${cliente.tipo}) - Saldo: ${cliente.conto}€ </h3> 
      
         <!-- Tabella che contiene: nome, foto, quantità e prezzo dei vari prodotti in vendita -->
@@ -52,7 +57,7 @@ and open the template in the editor.
                 <td><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></td>
                 <td>${oggetto.quantita}</td>
                 <td>${oggetto.prezzo}€</td>
-                <td><button class="cliente_button" type="Submit" onclick="location.href='Carrello?oggettoId=${oggetto.id}'">Aggiungi al carrello</button> </td>
+                <td><button class="cliente_button" type="Submit" onclick="location.href='Cliente_log?oggettoId=${oggetto.id}'">Aggiungi al carrello</button> </td>
                 </tr>
             </c:forEach>       
         </table>
@@ -73,11 +78,53 @@ and open the template in the editor.
                 <td>Prezzo: ${oggetto.prezzo}€</td>
                 </tr> 
                 <tr>
-                <td><button class="cliente_button_min" onclick="location.href='Carrello?oggettoId=${oggetto.id}'">Aggiungi al carrello</button></td>
+                <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId=${oggetto.id}'">Aggiungi al carrello</button></td>
                 </tr>
                 </c:forEach>    
             </table>
         </div>
+        </c:when>
+        
+        <c:when test="${client_loggedin && selezionato}">
+        <div id="cliente">
+        <h1 class="cliente_title">Carrello</h1>
+        <table>
+            <tr>
+            <th>Nome</th>
+            <th>Foto</th>
+            <th>Quantità</th>
+            <th>Prezzo</th>
+            <th>Compra</th>
+            </tr>
+                <tr>
+                <td>${oggetto.nome}</td>
+                <td><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></td>
+                <td>${oggetto.quantita}</td>
+                <td>${oggetto.prezzo}€</td>
+                <td><button class="cliente_button" type="Submit" onclick="location.href='Cliente_log?oggettoId=${oggetto.id}'">Compra</button> </td>
+                </tr>    
+        </table>
+         </div>
+        
+        <div id="cliente_480table">
+            <h1 id="cliente_title_480table">Carrello</h1>
+            <table id="on_off_480table">
+                <tr>
+                <th rowspan="4"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></th>
+                <td>Nome: ${oggetto.nome}</td>
+                </tr>
+                <tr>
+                <td>Quantità: ${oggetto.quantita}</td>
+                </tr>
+                <tr>
+                <td>Prezzo: ${oggetto.prezzo}€</td>
+                </tr>
+                <tr>
+                <td><button class="cliente_button_min" onclick="location.href='Cliente_log?oggettoId=${oggetto.id}'">Compra</button></td>
+                </tr>
+            </table>
+        </div>    
+            
         </c:when>
         
         <c:when test="${!client_loggedin}">

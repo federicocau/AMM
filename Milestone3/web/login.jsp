@@ -23,7 +23,10 @@
     <body>
     <!-- contenitore principale -->
     <div id="box">
-        
+        <c:if test="${!from_session && !logout}">
+            <meta http-equiv="refresh" content="0;url=LoginPage">
+        </c:if>
+            
         <%@ include file="blocchi_dinamici/header.jsp" %>
         
         <c:choose>
@@ -48,12 +51,12 @@
         
         <!-- cliccare sul cliente mentre loggati col venditore -->
         <c:if test="${vendor_on_client}">
-            <h3 class="errorlogin">Accesso negato! Risulti loggato come un venditore.</h3>    
+            <h3 class="errorlogin">Accesso negato! Risulti loggato come venditore.</h3>    
         </c:if>
         
         <!-- cliccare sul venditore mentre loggati col cliente -->    
         <c:if test="${client_on_vendor}">
-            <h3 class="errorlogin">Accesso negato! Risulti loggato come un cliente.</h3>    
+            <h3 class="errorlogin">Accesso negato! Risulti loggato come cliente.</h3>    
         </c:if>
         
         <!-- cliccare sul cliente o venditore -->

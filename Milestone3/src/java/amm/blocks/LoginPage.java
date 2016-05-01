@@ -38,7 +38,8 @@ public class LoginPage extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        
+        // login.jsp attraverso url
+        request.setAttribute("from_session", true);
         HttpSession HttpSession = request.getSession(); // controllo se esistono sessioni precedenti
         // controllo se è presente una sessione precedente fatta col cliente
         if(HttpSession.getAttribute("client_loggedin")!= null && 
@@ -79,7 +80,6 @@ public class LoginPage extends HttpServlet {
                     if(u instanceof Venditore)
                     {
                         HttpSession.setAttribute("vendor_loggedin", true);
-                        HttpSession.setAttribute("log", true);
                         request.setAttribute("venditore", u);
                         request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getSellingObjectList()); // copiare il nuovo utentifactory
                         request.getRequestDispatcher("venditore.jsp").forward(request , response);    

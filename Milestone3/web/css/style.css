@@ -476,6 +476,7 @@ p{
 /* Prodotti */
 .cliente_title{
     text-align: center;
+    font-size: 23px;
 }
 
 .cliente_button{
@@ -886,6 +887,12 @@ p{
       margin: 50px auto ;
       font-size: 11px;
       font-weight: bold;
+    }
+    
+    /* Prodotti */
+    #cliente_title_480table{
+    text-align: center;
+    font-size: 16px;
     }
     
     table{

@@ -6,6 +6,7 @@
 package amm.blocks;
 
 import amm.m3.classi.TechwareObjFactory;
+import amm.m3.classi.TechwareObject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,20 +36,57 @@ public class Venditore_log extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        // venditore.jsp attraverso url
+        request.setAttribute("from_session", true);
+        
         HttpSession HttpSession = request.getSession(); // creiamo la nuova sessione
         if(HttpSession.getAttribute("vendor_loggedin")!= null && 
            HttpSession.getAttribute("vendor_loggedin").equals(true)&&
            HttpSession.getAttribute("client_loggedin")== null)        
         {
+            // inserimento oggetto
+            // new code start
+            TechwareObject oggetto = new TechwareObject();
+            boolean inserito = false;
+
+            if(request.getParameter("Submit") != null){
+                String nomeOggetto = request.getParameter("nome_oggetto");
+                String urlOggetto = request.getParameter("url_immagine");
+                String descrizioneOggetto = request.getParameter("descrizione_oggetto");
+                int prezzoOggetto = 0;
+                if(Integer.parseInt(request.getParameter("prezzo")) >= 0)
+                    prezzoOggetto = Integer.parseInt(request.getParameter("prezzo"));
+
+                int quantitaOggetto = 0;
+                if(Integer.parseInt(request.getParameter("quantity")) >= 0)
+                    quantitaOggetto = Integer.parseInt(request.getParameter("quantity"));
+
+
+                // Assegna i dati prelevati
+                oggetto.setNome(nomeOggetto);
+                oggetto.setUrl(urlOggetto);
+                oggetto.setDescrizione(descrizioneOggetto);
+                oggetto.setPrezzo(prezzoOggetto);
+                oggetto.setQuantita(quantitaOggetto);
+                // oggetto inserito
+                inserito = true;
+                // setto l'oggetto che voglio passare alla pagina jsp
+                request.setAttribute("oggetto", oggetto);
+                request.setAttribute("inserito", inserito);
+            }
+            // new code end
+            
             request.setAttribute("venditore", TechwareObjFactory.getInstance().getVenditore((int)HttpSession.getAttribute("id")));
             request.getRequestDispatcher("venditore.jsp").forward(request , response);
         }
         
+        // sessione attiva col cliente
         else if(HttpSession.getAttribute("client_loggedin")!= null){
             request.setAttribute("client_on_vendor", true);
             request.getRequestDispatcher("login.jsp").forward(request , response);
         }
         
+        // nessuna sessione, click su venditore
         else{    
             request.setAttribute("vendor_click", true);
             request.getRequestDispatcher("login.jsp").forward(request , response);
