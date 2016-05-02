@@ -29,6 +29,7 @@
             
         <%@ include file="blocchi_dinamici/header.jsp" %>
         
+        <!-- inserisco il logout se il cliente/venditore è loggato -->
         <c:choose>
             <c:when test="${vendor_loggedin || client_loggedin}">
                 <%@ include file="blocchi_dinamici/nav_logged.jsp" %>

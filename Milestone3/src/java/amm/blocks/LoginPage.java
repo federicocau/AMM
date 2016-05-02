@@ -40,7 +40,8 @@ public class LoginPage extends HttpServlet {
         
         // login.jsp attraverso url
         request.setAttribute("from_session", true);
-        HttpSession HttpSession = request.getSession(); // controllo se esistono sessioni precedenti
+        
+        HttpSession HttpSession = request.getSession(); 
         // controllo se è presente una sessione precedente fatta col cliente
         if(HttpSession.getAttribute("client_loggedin")!= null && 
            HttpSession.getAttribute("client_loggedin").equals(true) &&

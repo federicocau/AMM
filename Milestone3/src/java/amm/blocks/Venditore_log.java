@@ -41,13 +41,11 @@ public class Venditore_log extends HttpServlet {
         
         HttpSession HttpSession = request.getSession(); // creiamo la nuova sessione
         if(HttpSession.getAttribute("vendor_loggedin")!= null && 
-           HttpSession.getAttribute("vendor_loggedin").equals(true)&&
-           HttpSession.getAttribute("client_loggedin")== null)        
+           HttpSession.getAttribute("vendor_loggedin").equals(true))
         {
             // inserimento oggetto
-            // new code start
             TechwareObject oggetto = new TechwareObject();
-            boolean inserito = false;
+            request.setAttribute("inserito", false);
 
             if(request.getParameter("Submit") != null){
                 String nomeOggetto = request.getParameter("nome_oggetto");
@@ -69,12 +67,11 @@ public class Venditore_log extends HttpServlet {
                 oggetto.setPrezzo(prezzoOggetto);
                 oggetto.setQuantita(quantitaOggetto);
                 // oggetto inserito
-                inserito = true;
+                request.setAttribute("inserito", true);
                 // setto l'oggetto che voglio passare alla pagina jsp
                 request.setAttribute("oggetto", oggetto);
-                request.setAttribute("inserito", inserito);
+                
             }
-            // new code end
             
             request.setAttribute("venditore", TechwareObjFactory.getInstance().getVenditore((int)HttpSession.getAttribute("id")));
             request.getRequestDispatcher("venditore.jsp").forward(request , response);

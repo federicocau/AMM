@@ -40,8 +40,7 @@ public class Cliente_log extends HttpServlet {
         request.setAttribute("from_session", true);
         HttpSession HttpSession = request.getSession(); // creiamo la nuova sessione
         if(HttpSession.getAttribute("client_loggedin")!= null && 
-           HttpSession.getAttribute("client_loggedin").equals(true) &&
-           HttpSession.getAttribute("vendor_loggedin")== null)
+           HttpSession.getAttribute("client_loggedin").equals(true))
         {
             request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
             request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getSellingObjectList());
@@ -52,17 +51,14 @@ public class Cliente_log extends HttpServlet {
             {
                 request.setAttribute("selezionato", true);
                 int id = Integer.parseInt(request.getParameter("oggettoId"));
-                request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id));
-                request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
+                request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id));           
             }
-            
-            ///////////////// new code start
+
             if(request.getParameter("oggettoId_buy") != null)
             {
                 request.setAttribute("selezionato", true);
                 int id = Integer.parseInt(request.getParameter("oggettoId_buy"));
                 request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id));
-                request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
                 
                 // setto l'id utente
                 int id_cliente = (int)HttpSession.getAttribute("id");
@@ -80,6 +76,7 @@ public class Cliente_log extends HttpServlet {
                     TechwareObjFactory.getInstance().getObjectById(id).setQuantita(quantità -1);      
                 }
 
+                // se passo a questo ramo ho due case: o quantità <= 0 oppure il credito è insufficiente
                 else
                 {   
                     if(quantità <= 0)
@@ -88,7 +85,7 @@ public class Cliente_log extends HttpServlet {
                       request.setAttribute("credito_insufficiente", true);
                 }
             }
-            ///////////////// new code end
+
             request.getRequestDispatcher("cliente.jsp").forward(request , response);
         }
         
