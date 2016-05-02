@@ -38,7 +38,7 @@ public class Cliente_log extends HttpServlet {
         
         // cliente.jsp attraverso url
         request.setAttribute("from_session", true);
-        HttpSession HttpSession = request.getSession(); // creiamo la nuova sessione
+        HttpSession HttpSession = request.getSession(); // cerco la sessione
         if(HttpSession.getAttribute("client_loggedin")!= null && 
            HttpSession.getAttribute("client_loggedin").equals(true))
         {

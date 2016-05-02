@@ -39,7 +39,7 @@ public class Venditore_log extends HttpServlet {
         // venditore.jsp attraverso url
         request.setAttribute("from_session", true);
         
-        HttpSession HttpSession = request.getSession(); // creiamo la nuova sessione
+        HttpSession HttpSession = request.getSession(); // cerco la sessione
         if(HttpSession.getAttribute("vendor_loggedin")!= null && 
            HttpSession.getAttribute("vendor_loggedin").equals(true))
         {
