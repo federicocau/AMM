@@ -61,6 +61,7 @@ public class Cliente_log extends HttpServlet {
             {
                 
                 int id_oggetto = Integer.parseInt(request.getParameter("oggettoId_buy"));
+                // controllo che l'oggetto esista
                 TechwareObject objExists = TechwareObjFactory.getInstance().getObjectById(id_oggetto);
                 
                 if(objExists == null){
@@ -101,6 +102,10 @@ public class Cliente_log extends HttpServlet {
                             request.setAttribute("errore_sql", true);
                             break;                 
                     }
+                    // aggiorno i dati dell'oggetto e del cliente sulla pagina
+                    // devo aggiornarli solo se l'oggetto esiste!!!!
+                    request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id_oggetto));
+                    request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
                 }                 
             }
             
