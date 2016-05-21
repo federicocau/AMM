@@ -1,0 +1,957 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23-mar-2016, 16.17.47
+    Author     : Admin
+*/
+
+/*
+    Login.html
+*/
+body{
+    background: #e2e2e0;
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#3378a5), to(#ffffff));*/
+    font-family: "Open Sans", Arial, sans-serif;
+    color: black;
+}
+
+/* formato contenitore principale */
+#box{
+    /* dimensione box */
+    width: 80%;
+    height: 100%;
+    /* centra orizzontalmente quell'elemento all'interno del suo contenitore */
+    margin-left : auto;
+    margin-right : auto;
+    margin-top: 35px;
+    margin-bottom: 55px; 
+}
+
+/* formato box header */
+#header{
+    width:100%;
+    color: #000;
+    text-align: left;
+    /* sfumatura da sinistra a destra*/
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 44%, rgba(245,119,10,1) 73%, rgba(245,119,10,1) 100%); 
+}
+
+.techware_img{
+    margin: 0;
+}
+
+/* link social */
+.social {
+    /*border: 1px solid #000;*/
+    float: right; 
+    margin-top: 3px;
+    margin-right: 3px;  
+}
+
+.social ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.social ul li {
+    display : inline-block;
+}
+
+.social li a:hover{
+    
+}
+
+/* formato header */
+h1,h2,h3{
+    color: darkslategrey;
+}
+
+/* format paragrafi */
+p{
+    font-size: 13px;
+}
+
+/*
+    css <nav>
+*/
+#navigazione{
+    /* dimensione dei lati */
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    float:left;
+    /* lunghezza e colore barra di navigazione */
+    width: 100%;
+    background-color: #000;
+    /* dimensione del font */
+    font-size:85% 
+}
+
+/*
+    elenchi nav
+*/
+#navigazione li {
+    /* dimensione dei lati */
+    margin:0;
+    padding:0;
+    /* elemeto a sinistra */
+    float:left;
+    display: block;
+    
+    /* dimensione in pixel dei bordi e relativo colore */
+    /*border-right: 1px solid #223;*/
+    position: relative;
+}
+
+/*
+    link nav
+*/
+#navigazione li a{
+    float: left;
+    /* 14 pixel altezza, 30 pixel lunghezza */
+    padding:12px 30px;
+    /* colore font <li> */
+    color: #fff;
+    /*text-transform: uppercase;*/
+    text-decoration:none;
+}
+
+/*
+    mouse sopra i <li>
+*/
+#navigazione li a:hover{
+    background-color: #0186ba;
+}
+
+#footer{
+    /* dimensione dei lati */
+    margin-left : auto;
+    margin-right : auto;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    padding: 0;
+    list-style: none;
+    float:left;
+    /* lunghezza e colore barra di navigazione */
+    width: 100%;
+    background-color: #000;
+    /* dimensione del font */
+    font-size:85%
+}
+
+/*
+    css <li>
+*/
+#footer li {
+    /* dimensione dei lati */
+    margin:0;
+    padding:0;
+
+    /* elemeto a sinistra */
+    float:left;
+    display: block;
+    
+    /* dimensione in pixel dei bordi e relativo colore */
+    position: relative;
+}
+
+/*
+    padding da' la larghezza del bottone
+*/
+#footer li a{
+    float: left;
+    /* 14 pixel altezza, 30 pixel lunghezza */
+    padding:12px 20px;
+    /* colore font <li> */
+    color: #fff;
+    text-decoration:none;
+}
+
+/*
+    mouse sopra i <li>
+*/
+#footer li a:hover{
+    background-color: #0186ba;
+}
+
+/*
+    format login
+*/
+.login {
+  position: relative;
+  /* distanza superiore */
+  top: 25px;
+  /*     margin-top     margin-right     margin-bottom     margin-left   */
+  margin: 50px auto ; 
+  background: #eceeee;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 280px;
+  width: 305px;
+
+}
+
+/* stampa credenziali cliente/venditore */
+.user_stats{
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  padding-top: 40px;
+  padding-bottom: 0px;
+  bottom: 10px;
+}
+
+/*
+    format error login
+*/
+.errorlogin {
+  position: relative;
+  /* distanza superiore */
+  top: 40px;
+  /*     margin-top     margin-right     margin-bottom     margin-left   */
+  margin: 10px auto 0px auto ;
+  text-align: center;
+  font-size: 15px;
+  color: #DC143C;
+}
+
+/*
+    format logout
+*/
+.logout {
+  position: relative;
+  /* distanza superiore */
+  top: 40px;
+  /*     margin-top     margin-right     margin-bottom     margin-left   */
+  margin: 10px auto 0px auto ;
+  text-align: center;
+  font-size: 15px;
+  color: green;
+}
+
+.accessonegato{
+  text-align: center;
+  font-size: 16px;
+  color: #DC143C;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  bottom: 40px;
+}
+
+/* Accedi */
+.logformtitle{
+    margin: 12px 0 12px 110px;
+    text-align: left;
+    font-size: 25px;
+}
+
+.login_label{
+    display: block;
+    line-height: 1px; /* Altezza di riga */
+    width: 80px; 
+}
+
+.login_label, #user, #password{
+    float: left; 
+    font-size: 14px;
+    font-weight: bold; 
+    margin: 10px 0; 
+    margin-left: 22px;
+}
+
+#user, #password{
+    border: 1px solid #323232; 
+    height: 30px; 
+    line-height: 20px; /* Altezza di riga */
+    width: 240px; /* Larghezza */
+    padding: 0 10px; /* Padding */
+    /* dimensione e colore del bordo */   
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff; 
+    /* colore scritta dentro la box */
+    color: #000;
+    
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+/* focus in box - Login.html, Venditore. html */
+#user:focus, #password:focus,
+#nome_oggetto:focus, #url_immagine:focus, #descrizione_oggetto:focus, #prezzo:focus, #quantity:focus{
+    /* web transition per il focus */
+    -webkit-transition: all 0.20s ease-in-out;
+    /* colore on focus */
+    box-shadow: 0 0 7px orange;
+    /* rimuovo il contorno */
+    outline: none;
+    /* cambio il colore del bordo */
+    border: 1px solid orange;
+}
+
+/* bottone login */
+#login_button{
+  /* dimensione e colore del bordo */
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff;  
+   
+  /* larghezza bottone */
+  width: 260px;
+  /* altezza bottone */
+  height:30px;
+  
+  font-size:14px;
+  /* colore scritta */
+  color:#000;
+  
+  text-align:center;
+ 
+  /* posizione scritta all'interno del bottone */
+  padding-top:2px;
+  /*     margin-top     margin-right     margin-bottom     margin-left   */
+  margin: 10px 0 20px 20px;
+  /* onmouse over appare la manina*/
+  cursor: pointer;
+  
+  /*background-color: #fff;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+
+
+}
+
+#login_button:hover{
+    /*background-color: #ABABAB;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+}
+
+
+/**
+    Descrizione.html
+**/
+
+/* descrizione componenti */
+#descrizione_content{
+    float: right;
+    width: 78%;
+    height: 480px;
+    /* scroll interno alla pagina solo per l'asse y */
+    overflow-y:auto;
+    margin-top: 5px;
+}
+
+/* barra al lato */
+#descrizione_aside{
+    width: 16%;
+    font-size: 85%;
+    /* distanza dall'alto */
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+    padding: 0;
+}
+
+/* format cella categoria */
+#categorie{
+    color: #fff;
+    /* effetto sfumato webkit */
+    background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+    display: block;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #fff;
+    /* altezza celle */
+    height: 40px;
+    /* distanza dall'alto del testo */
+    line-height: 37px;
+    /* testo tutto maiuscolo */
+    text-transform: uppercase;
+    /* testo centrato */
+    text-align: center;
+    /* evito di sottolineare il testo */
+    text-decoration: none;
+}
+
+/* format lista */
+#descrizione_aside li{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    position: relative;
+    display: block;
+}
+
+/* format link */
+#descrizione_aside li a{
+    color: #fff;
+    background-color: #000;
+    display: block;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #e2e2e0;
+    /* altezza celle */
+    height: 36px;
+    /* distanza dall'alto del testo */
+    line-height: 37px;
+    /* testo tutto maiuscolo */
+    text-transform: uppercase;
+    /* testo centrato */
+    text-align: center;
+    /* evito di sottolineare il testo */
+    text-decoration: none;
+    font-size: 13px;
+}
+
+#descrizione_aside li a:hover{
+    background-color: #0186ba;/*cac*/
+}
+
+/* lista sottomenù */
+#descrizione_aside ul {
+    /* celle allineate */
+    display: inline-block;
+    /* opacità sottomenù */
+    opacity: 0;
+    /* nascondo i sottomenù */
+    visibility: hidden;
+    
+    position: absolute;
+    top: 0px;
+    /* top right bottom left (distanza submenu')*/
+    margin: 0px 77% 0;
+    /* mi serve per il focus dei sottomenù */
+    z-index: 99;
+    /* font ul */
+    font-size: 13px;
+    
+}
+/* mouse on lista -> ul */
+#descrizione_aside li:hover ul{
+        /* opacità sottomenù */
+	opacity: 1;
+        /* mostro i sottomenù e mantengo il focus */
+        visibility: visible;
+}
+
+/* lista sottomenù */
+#descrizione_aside ul li{
+	float: none;
+	display: block;
+	border: 0;
+}
+
+/* lista sottomenù link */
+#descrizione_aside ul a{
+	padding: 0px;
+        /* lunghezza celle ul */
+	width: 139px;
+	display: block;
+	text-transform: none;
+}
+
+#descrizione_aside ul a:hover{
+	background-color: #0186ba;
+	color:#fff
+}
+
+
+/**
+    Cliente.html
+**/
+ #cliente{
+   position: relative;
+  /* distanza superiore */
+  top: 24px;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  /*
+  height: 930px;
+  width: 880px;*/
+  width: 95%;
+  height: 80%;
+  margin: 50px auto ; 
+  font-size: 15px;
+
+}
+
+/* Prodotti */
+.cliente_title{
+    text-align: center;
+    font-size: 23px;
+}
+
+/* messaggio acquisto oggetto */
+.cliente_buy_success{
+    text-align: center;
+    font-size: 16px;
+    color: green;
+}
+
+/* messaggio acquisto oggetto */
+.cliente_buy_failed{
+    text-align: center;
+    font-size: 16px;
+    color:#DC143C;
+}
+
+.cliente_button{
+    /* dimensione e colore del bordo */
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff;  
+   
+  /* larghezza bottone */
+  width: 135px;
+  /* altezza bottone */
+  height:30px;
+  
+  font-size:13px;
+  /* colore scritta */
+  color:#000;
+  
+  text-align:center;
+ 
+  /* posizione scritta all'interno del bottone */
+  padding-top:4px;
+ 
+  /* onmouse over appare la manina*/
+  cursor: pointer;
+  
+  /*background-color: #fff;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+}
+
+.cliente_button:hover{
+    /*background-color: #ABABAB;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+}
+
+#cliente_title_480table{
+    text-align: center;
+}
+
+/* tabella per min width 480 */
+.cliente_button_min{
+    /* dimensione e colore del bordo */
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff;  
+
+    /* larghezza bottone */
+    width: 125px;
+    /* altezza bottone */
+    height:25px;
+
+    font-size:11px;
+    /* colore scritta */
+    color:#000;
+
+    text-align:center;
+
+    /* posizione scritta all'interno del bottone */
+    padding-top:4px;
+
+    /* onmouse over appare la manina*/
+    cursor: pointer;
+
+    /*background-color: #fff;*/
+    background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+    }
+
+    .cliente_button_min:hover{
+        /*background-color: #ABABAB;*/
+      background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+    }
+
+
+/**
+    Venditore.html
+**/
+.venditore{
+    position: relative;
+  /* distanza superiore */
+  top: 27px;
+  background: #eceeee;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 630px;
+  width: 340px;
+  /*
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+  */
+  margin: 50px auto ; 
+}
+
+.venditore_title{
+    margin: 12px 0 12px 50px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.venditore_form{
+    display: block; 
+    line-height: 30px; /* Altezza di riga */
+    width: 95px; 
+}
+
+.venditore_form,
+#nome_oggetto, #url_immagine, #prezzo, #quantity, #descrizione_oggetto{
+    float: left; 
+    font-size: 13px;
+    font-weight: bold; 
+    /*margin: 8px 0; */
+    margin-left: 37px;
+    margin-right: 37px;
+
+}
+
+#nome_oggetto, #url_immagine, #prezzo, #quantity, #descrizione_oggetto{
+    border: 1px solid #323232; 
+    height: 30px; 
+    line-height: 10px; 
+    width: 240px; 
+    padding: 0 10px; 
+    /* dimensione e colore del bordo */   
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff; 
+    /* colore scritta dentro la box */
+    color: #000;
+}
+
+#descrizione_oggetto{
+    font-size: 14px;
+    height: 200px;
+    width: 240px;
+    /* dimensione e colore del bordo */   
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff;
+    /* la box non puo' essere ridimensionata */
+    resize: none;
+    padding-top: 10px; /* distanza interna box */
+    line-height: 15px; /* distanza tra riga e riga */
+    
+}
+
+/* bottoni venditore */
+#venditore_insert, #venditore_delete{
+  /* dimensione e colore del bordo */
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff;  
+   
+  /* larghezza bottone */
+  width: 260px;
+  /* altezza bottone */
+  height:30px;
+  
+  font-size:14px;
+  /* colore scritta */
+  color:#000;
+  
+  text-align:center;
+ 
+  /* posizione scritta all'interno del bottone */
+  padding-top:2px;
+  margin: 20px 37px 20px 37px;
+  /* onmouse over appare la manina*/
+  cursor: pointer;
+  
+  /*background-color: #fff;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+
+}
+
+#venditore_insert:hover, #venditore_delete:hover{
+  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+}
+
+/**
+    Risoluzione Max 1024px due/tre colonne
+**/
+
+@media only screen and (min-width:1024px) {
+    #box{
+        /*background-color: lightgreen;*/
+        background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#3378a5));
+    }
+    
+    /* struttura tabella */
+    table{
+        width: 100%;
+        height:98%;
+        background-color: white;
+        border-collapse: collapse;
+        margin: auto;
+        font-weight: bold;
+    }
+    th{
+        height: 30%;
+        width: 50px;
+        padding: 8px;
+
+    }
+
+    /* alternanza di colore tra le righe */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+
+    td{
+        padding: 5px;
+        font-size: 14px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+
+    #on_off_480table, #cliente_title_480table{
+        position:absolute;
+        left:-9999px;
+    }
+    
+}
+
+/**
+    Risoluzione Media 600-1024px una/due colonne
+**/
+
+@media only screen and (min-width:480px) and (max-width:1024px) {
+    #box{
+        background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#5378a5));
+        min-width: 600px;
+    }
+    
+    #header{
+        min-width: 600px;
+        background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(245,119,10,1) 73%, rgba(245,119,10,1) 100%);
+    }
+    
+    h2,h3{
+        font-size:15px;
+    }
+
+    .cliente{
+        min-width: 600px;
+    }
+    
+    #descrizione_aside{
+        min-width: 120px;
+    }
+    
+    #descrizione_aside ul{
+         margin: 0px 70% 0;
+    }
+    
+    
+    #descrizione_content{
+        min-width: 460px;
+        font-size: 60%;
+    }
+
+    #navigazione{
+        font-size:75%;
+        min-width: 600px;
+    }
+    
+    #footer{
+        font-size:75%;
+        min-width: 600px;
+    }
+    
+    /* struttura tabella */
+    table{
+        width: 100%;
+        height:98%;
+        background-color: white;
+        border-collapse: collapse;
+        margin: auto;
+    }
+    th{
+        height: 30%;
+        width: 40px;
+        padding: 8px;
+
+    }
+
+    /* alternanza di colore tra le righe */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        /*background-color: #f5fff5;*/
+    }
+
+    td{
+        padding: 5px;
+        font-size: 14px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+     #on_off_480table, #cliente_title_480table{
+        position:absolute;
+        left:-9999px;
+    }
+    
+}
+
+/**
+    Risoluzione Media 480px una colonna
+**/
+
+@media only screen and (max-width:480px) {
+    #box{
+        background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#5678a5));
+        min-width: 380px;
+    }
+    
+    /* stampa credenziali cliente/venditore */
+    .user_stats{
+
+      font-size: 14px;
+
+    }
+    
+    .techware_img{
+        display: block;
+        margin:0 auto;
+    }
+    
+    .social {
+        position:absolute;
+        left:-9999px;;   
+    }
+    
+    #header{
+        min-width: 380px;
+        background: white;
+    }
+       
+    h2,h3{
+        font-size:13px;
+    }
+    
+    #navigazione{
+        font-size: 70%;
+        min-width: 380px;
+    }
+    
+    #navigazione li a{
+        padding: 12px 20px;
+    }
+    
+    #footer{
+        font-size: 70%;
+        min-width: 380px;
+    }
+   
+    /* barra al lato */
+    #descrizione_aside{
+        width: 40%;
+        font-size: 85%;
+        /* distanza dall'alto */
+        margin-top: 10px;
+        padding: 0;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
+    /* format link */
+    #descrizione_aside li a{
+        /* altezza celle */
+        height: 30px;
+        /* distanza dall'alto del testo */
+        line-height: 32px;
+        font-size: 10px;
+    }
+
+    /* lista sottomenù */
+    #descrizione_aside ul {
+        margin: 0px 75% 0;
+    }
+
+    #descrizione_content{
+        min-width: 100%;
+        font-size: 60%;
+    }
+    
+    #cliente{
+        /* tecnica off-left per screen reader */
+        position:absolute;
+        left:-9999px;
+    }
+    
+    /* tabella per la dimensione <=480 pixel width */
+    #cliente_480table{
+       position: relative;
+      /* distanza superiore */
+      top: 24px;
+      border: 1px solid #42464b;
+      border-radius: 6px;
+      width: 95%;
+      height: 80%;
+      margin: 50px auto ;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    
+    /* Prodotti */
+    #cliente_title_480table{
+    text-align: center;
+    font-size: 16px;
+    }
+    
+    table{
+        width: 100%;
+        height:98%;
+        background-color: white;
+        border-collapse: collapse;
+        margin: auto;
+        border: 1px solid gainsboro;
+    }
+    
+    th{
+        height: 160px;
+        width: 30px;
+        border: 1px solid gainsboro;
+    }
+
+    /* alternanza di colore tra le righe */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    td{
+        width: 100px;
+        padding: 3px;
+        text-align: center;
+        border: 1px solid gainsboro;
+    }
+    
+}
