@@ -218,6 +218,39 @@ public class TechwareObjFactory {
         return flag;
     }
     
+    // elimina un oggetto  
+    public boolean modificaOggetto(TechwareObject oggetto){
+        boolean flag = false;
+        try 
+        {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "root", "root");
+
+            String query = "UPDATE oggetto SET "
+                        + "   nome = '"          + oggetto.nome 
+                        + "' , url = '"           + oggetto.url 
+                        + "' , descrizione = '"   + oggetto.descrizione 
+                        + "' , prezzo = "        + oggetto.prezzo 
+                        + " , quantita = "      + oggetto.quantita
+                        + " WHERE id = "        + oggetto.id;
+
+            Statement st = conn.createStatement();
+            // conto le righe brutalmente
+            int rows = st.executeUpdate(query);
+
+            if(rows == 1)
+               flag = true;
+            st.close();
+            conn.close();
+                  
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+    
 
     // restituisce tutti gli oggetti facenti parte di una certa categoria
     /*public TechwareObject getSellingObjectByCategory(String categoria){

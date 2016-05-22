@@ -33,7 +33,7 @@ and open the template in the editor.
         <%@ include file="blocchi_dinamici/header.jsp" %>
         <%@ include file="blocchi_dinamici/nav_logged.jsp" %>
         <c:choose>
-        <c:when test="${vendor_loggedin && !oggettoDelete}">
+        <c:when test="${vendor_loggedin && !oggettoDelete && !oggettoModify}">
             
          <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3>
          <c:if test="${oggettoNonTrovato}">
@@ -44,6 +44,12 @@ and open the template in the editor.
         </c:if> 
          <c:if test="${oggettoNonEliminato}">
             <h1 class="cliente_buy_failed"> Errore durante la rimozione dell'oggetto con id = ${objId}</h1> 
+        </c:if>
+        <c:if test="${oggettoNonModificato}">
+            <h1 class="cliente_buy_failed"> Errore durante la rimozione dell'oggetto con id = ${objId}</h1> 
+        </c:if>
+        <c:if test="${oggettoModificato}">
+            <h1 class="cliente_buy_success"> Oggetto con id = ${objId} modificato con successo!</h1> 
         </c:if>
         <div id="cliente">
         <h1 class="cliente_title">Oggetti in Vendita</h1>
@@ -65,7 +71,7 @@ and open the template in the editor.
                 <td>${oggetto.quantita}</td>
                 <td>${oggetto.prezzo}€</td>
                 <td>
-                    <button class="cliente_button" type="Submit" onclick="location.href='Venditore_log?oggettoId=${oggetto.id}'">Modifica</button>
+                    <button class="cliente_button" type="Submit" onclick="location.href='Venditore_log?oggettoModify=${oggetto.id}'">Modifica</button>
                         
                     <button class="cliente_button" type="Submit" onclick="location.href='Venditore_log?oggettoDelete=${oggetto.id}'">Rimuovi</button>
                 </td>
@@ -94,7 +100,7 @@ and open the template in the editor.
                 </tr> 
                 <tr>
                 <td>
-                    <button class="cliente_button_min" onclick="location.href='Venditore_log?oggettoId=${oggetto.id}'">Modifica</button>
+                    <button class="cliente_button_min" onclick="location.href='Venditore_log?oggettoModify=${oggetto.id}'">Modifica</button>
                     <button class="cliente_button_min" onclick="location.href='Venditore_log?oggettoDelete=${oggetto.id}'">Rimuovi</button>
                 </td>
                 </tr>
@@ -104,6 +110,26 @@ and open the template in the editor.
         </div>
         
         </c:when>
+            
+         <c:when test="${vendor_loggedin && oggettoModify}">
+             <!-- modifica oggetto -->
+        <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3> 
+        <div class="venditore">
+        <h3 class="venditore_title">Modifica oggetto</h3>
+        <form method="post" action="Venditore_log?oggettoModificato=${oggetto.id}">
+            <input type="hidden" name="cmd" value="oggetto">
+            <!-- tutti i campi devono essere compilati (required) -->
+            <label for="nome_oggetto" class="venditore_form">Nome oggetto</label> <input name="nome_oggetto" id="nome_oggetto" type="text" value="${oggetto.nome}" required/>
+            <label for="url_immagine" class="venditore_form">URL immagine</label> <input name="url_immagine" id="url_immagine" type="url" value="${oggetto.url}" required/>
+            <label for="descrizione_oggetto" class="venditore_form">Descrizione</label> <textarea rows="7" cols="60"  name="descrizione_oggetto" id="descrizione_oggetto" required>${oggetto.descrizione}</textarea>
+            <label for="prezzo" class="venditore_form">Prezzo</label>      <input name="prezzo" id="prezzo" type="number" step="any" min="0" value="${oggetto.prezzo}" required/>
+            <label for="quantity" class="venditore_form">Quantità  </label> <input name="quantity" id="quantity" type="number" step="any" min="0" value="${oggetto.quantita}" required/>
+            
+            <input id="venditore_insert" type="submit" value="Inserisci" name="Submit"/>
+            <!--<input id="venditore_delete" type="submit" value="Pulisci campi"/>-->
+        </form>
+       </div>    
+         </c:when>
          
          <c:when test="${vendor_loggedin && oggettoAdd}">
              <!-- inserimento nuovo oggetto -->
@@ -124,6 +150,7 @@ and open the template in the editor.
         </form>
        </div>    
          </c:when>
+        
         
         <c:when test="${vendor_loggedin && oggettoDelete}">
         <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3>

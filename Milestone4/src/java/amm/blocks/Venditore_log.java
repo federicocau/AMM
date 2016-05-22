@@ -85,9 +85,60 @@ public class Venditore_log extends HttpServlet {
                     request.setAttribute("oggettoNonTrovato", true);
             }
             
-            // modifica oggetto
-            if(request.getParameter("modificaOggetto") != null){
-                
+            // oggetto da modificare 
+            if(request.getParameter("oggettoModify") != null){
+                int id_oggetto = Integer.parseInt(request.getParameter("oggettoModify"));
+                // controllo che l'oggetto sia in possesso di quel determinato venditore
+                boolean oggetto_venditore = TechwareObjFactory.getInstance().checkVenditoreObject(id_venditore, id_oggetto);
+                if(oggetto_venditore){
+                    request.setAttribute("oggettoModify", true);
+                    request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id_oggetto));
+                }
+                else
+                    request.setAttribute("oggettoNonTrovato", true);
+            }
+            
+            // oggetto modificato
+            if(request.getParameter("oggettoModificato") != null){
+                int id_oggetto = Integer.parseInt(request.getParameter("oggettoModificato"));
+                // controllo che l'oggetto sia in possesso di quel determinato venditore
+                boolean oggetto_venditore = TechwareObjFactory.getInstance().checkVenditoreObject(id_venditore, id_oggetto);
+                if(oggetto_venditore){
+                    TechwareObject oggetto = new TechwareObject();
+                    String nomeOggetto = request.getParameter("nome_oggetto");
+                    String urlOggetto = request.getParameter("url_immagine");
+                    String descrizioneOggetto = request.getParameter("descrizione_oggetto");
+                    double prezzoOggetto = 0;
+                    if(Double.parseDouble(request.getParameter("prezzo")) >= 0)
+                        prezzoOggetto = Double.parseDouble(request.getParameter("prezzo"));
+                    int quantitaOggetto = 0;
+                    if(Integer.parseInt(request.getParameter("quantity")) >= 0)
+                        quantitaOggetto = Integer.parseInt(request.getParameter("quantity"));
+
+                    // Assegna i dati prelevati
+                    oggetto.setId(id_oggetto);
+                    oggetto.setNome(nomeOggetto);
+                    oggetto.setUrl(urlOggetto);
+                    oggetto.setDescrizione(descrizioneOggetto);
+                    oggetto.setPrezzo(prezzoOggetto);
+                    oggetto.setQuantita(quantitaOggetto);
+                    boolean modificato = TechwareObjFactory.getInstance().modificaOggetto(oggetto);
+                    if(modificato){
+                        request.setAttribute("oggettoModificato", true);
+                        request.setAttribute("objId", id_oggetto);
+                    }
+                        
+                    else{
+                        request.setAttribute("oggettoNonModificato", true);
+                        request.setAttribute("objId", id_oggetto);
+                    }
+                        
+
+                    // aggiorno la lista oggetti
+                    request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getVenditoreObjectList(id_venditore));
+                }
+                else
+                    request.setAttribute("oggettoNonTrovato", true);
             }
             
             // aggiunta oggetto
