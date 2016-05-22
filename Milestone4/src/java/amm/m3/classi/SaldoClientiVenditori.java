@@ -56,7 +56,7 @@ public class SaldoClientiVenditori extends User{
         // flag per i parametri '?' della query
         int unico = 0;
         
-                
+        // questo pezzo di codice non dovrebbe mai essere eseguito        
         if(quantita_ogg <= 0){
             conn.rollback();
             return 1; // 1 = nessun oggetto

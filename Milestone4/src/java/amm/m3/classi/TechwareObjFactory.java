@@ -90,7 +90,7 @@ public class TechwareObjFactory {
             // path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "root", "root");
             Statement stmt = conn.createStatement();
-            String query = "select * from oggetto "; /*** controllare ***/
+            String query = "select * from oggetto ";
             ResultSet res = stmt.executeQuery(query);
 
             
@@ -116,6 +116,106 @@ public class TechwareObjFactory {
             e.printStackTrace();
         }
         return listaOggetti;
+    }
+    
+    // restituisce tutti gli oggetti appartenenti ad un venditore
+    public ArrayList<TechwareObject> getVenditoreObjectList(int id_venditore){
+        // Lista Oggetti
+        ArrayList<TechwareObject> oggettiInVendita = new ArrayList<TechwareObject>();
+        try 
+        {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "root", "root");
+
+            String query = "SELECT * "
+                        + "FROM oggetto "
+                        + "JOIN venditore ON venditore.id = oggetto.venditore_id "
+                        + "WHERE oggetto.venditore_id = " + id_venditore;
+                Statement st = conn.createStatement();
+                ResultSet set2 = st.executeQuery(query);
+                // ripulisco l'array per non avere oggetti duplicati
+                
+                while(set2.next()){
+                    TechwareObject oggetto = new TechwareObject();
+                    oggetto.setId(set2.getInt("id"));
+                    oggetto.setCategoria(set2.getString("categoria"));
+                    oggetto.setNome(set2.getString("nome"));
+                    oggetto.setUrl(set2.getString("url"));
+                    oggetto.setDescrizione(set2.getString("descrizione"));
+                    oggetto.setPrezzo(set2.getDouble("prezzo"));
+                    oggetto.setQuantita(set2.getInt("quantita"));
+                    oggettiInVendita.add(oggetto);         
+                }
+                st.close();
+                conn.close();  
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return oggettiInVendita;
+    }
+    
+    // restituisce tutti gli oggetti appartenenti ad un venditore
+    public boolean checkVenditoreObject(int id_venditore, int id_oggetto){
+        boolean flag = false;
+        try 
+        {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "root", "root");
+
+            String query = "SELECT * "
+                        + "FROM oggetto "
+                        + "JOIN venditore ON venditore.id = oggetto.venditore_id "
+                        + "WHERE oggetto.venditore_id = " + id_venditore
+                        + "AND oggetto.id = " + id_oggetto;
+            Statement st = conn.createStatement();
+            // conto le righe brutalmente
+            int rows=0;
+            ResultSet set2 = st.executeQuery(query);
+   
+            while(set2.next()){
+                rows++;
+            }
+
+            if(rows == 1)
+                    flag = true;
+            st.close();
+            conn.close();
+                  
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+    
+    // elimina un oggetto  
+    public boolean eliminaOggetto(int id_oggetto){
+        boolean flag = false;
+        try 
+        {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "root", "root");
+
+            String query = "DELETE FROM oggetto "
+                         + "WHERE id = " + id_oggetto;
+            Statement st = conn.createStatement();
+            // conto le righe brutalmente
+            int rows = st.executeUpdate(query);
+
+            if(rows == 1)
+               flag = true;
+            st.close();
+            conn.close();
+                  
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return flag;
     }
     
 
@@ -164,6 +264,8 @@ public class TechwareObjFactory {
                         + "WHERE oggetto.venditore_id = " + venditore.id;
                 Statement st = conn.createStatement();
                 ResultSet set2 = st.executeQuery(query);
+                // ripulisco l'array per non avere oggetti duplicati
+                
                 while(set2.next()){
                     TechwareObject oggetto = new TechwareObject();
                     oggetto.setId(set2.getInt("id"));
@@ -409,6 +511,7 @@ public class TechwareObjFactory {
     public String getConnectionString(){
 	return this.connectionString;
     }
+  
     
     
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Venditore extends User{
     /* Attributi */
-    protected ArrayList<TechwareObject> oggettiInVendita = new ArrayList<TechwareObject>();
+    public static ArrayList<TechwareObject> oggettiInVendita = new ArrayList<TechwareObject>();
     
     /* Costruttore */
     public Venditore()
@@ -24,7 +24,7 @@ public class Venditore extends User{
     /**
      * @return the oggettiInVendita
      */
-    public ArrayList<TechwareObject> getOggettiInVendita() {
+    public static ArrayList<TechwareObject> getOggettiInVendita() {
         return oggettiInVendita;
     }
 

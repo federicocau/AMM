@@ -33,7 +33,7 @@ public class LoginPage extends HttpServlet {
 
     @Override 
     public void init(){
-        //String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/") + DB_BUILD_PATH;
+        //String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/") + DB_BUILD_PATH; // non funge
         String dbConnection = "jdbc:derby://localhost:1527/ammdb";
         //System.out.println(dbConnection);
         try {
@@ -86,6 +86,8 @@ public class LoginPage extends HttpServlet {
             String username = request.getParameter("Username");
             String password = request.getParameter("Password");
            //  devo controllare se è != null 
+           // ripulisco il vecchio vettore
+            Venditore.oggettiInVendita.clear();
             User u = TechwareObjFactory.getInstance().getUser(username, password);
             if(u != null)
             {
@@ -98,7 +100,8 @@ public class LoginPage extends HttpServlet {
                     {
                         HttpSession.setAttribute("vendor_loggedin", true);
                         request.setAttribute("venditore", u);
-                        request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getSellingObjectList()); // copiare il nuovo utentifactory
+                        int id_venditore = u.getId();
+                        request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getVenditoreObjectList(id_venditore)); // copiare il nuovo utentifactory
                         request.getRequestDispatcher("venditore.jsp").forward(request , response);    
                     }
                     

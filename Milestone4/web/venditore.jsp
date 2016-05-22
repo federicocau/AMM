@@ -33,15 +33,81 @@ and open the template in the editor.
         <%@ include file="blocchi_dinamici/header.jsp" %>
         <%@ include file="blocchi_dinamici/nav_logged.jsp" %>
         <c:choose>
-        <c:when test="${vendor_loggedin && !inserito}">
-         <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3> 
-                    
-
-    
-        <!-- form di input che comprende: nome, url immagine, descrizione, prezzo e quantità dell'oggetto messo in vendita
-             Ho inserito input e label dentro dei paragrafi solo per avere un minimo di chiarezza nella visualizzazione
-             della pagina, li rimuoverò quando faremo i CSS.
-        -->
+        <c:when test="${vendor_loggedin && !oggettoDelete}">
+            
+         <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3>
+         <c:if test="${oggettoNonTrovato}">
+            <h1 class="cliente_buy_failed"> L'oggetto selezionato non esiste!</h1> 
+        </c:if>
+         <c:if test="${oggettoConfermaDelete}">
+            <h1 class="cliente_buy_success"> Oggetto eliminato con successo!</h1> 
+        </c:if> 
+         <c:if test="${oggettoNonEliminato}">
+            <h1 class="cliente_buy_failed"> Errore durante la rimozione dell'oggetto con id = ${objId}</h1> 
+        </c:if>
+        <div id="cliente">
+        <h1 class="cliente_title">Oggetti in Vendita</h1>
+        <table>
+            <tr>
+            <th>ID</th>    
+            <th>Nome</th>
+            <th>Foto</th>
+            <th>Quantità</th>
+            <th>Prezzo</th>
+            <th>Modifica/Rimuovi</th>
+            </tr>
+            <c:forEach var="oggetto" items="${listaOggetti}">
+                <c:if test="${oggetto.quantita > 0}">
+                <tr>
+                <td>${oggetto.id}</td>    
+                <td>${oggetto.nome}</td>
+                <td><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></td>
+                <td>${oggetto.quantita}</td>
+                <td>${oggetto.prezzo}€</td>
+                <td>
+                    <button class="cliente_button" type="Submit" onclick="location.href='Venditore_log?oggettoId=${oggetto.id}'">Modifica</button>
+                        
+                    <button class="cliente_button" type="Submit" onclick="location.href='Venditore_log?oggettoDelete=${oggetto.id}'">Rimuovi</button>
+                </td>
+                </tr>
+                </c:if>
+            </c:forEach>       
+        </table>
+        </div>
+         
+        <div id="cliente_480table">
+            <h1 id="cliente_title_480table">Prodotti</h1>
+            <table id="on_off_480table">
+                <c:forEach var="oggetto" items="${listaOggetti}">
+                <c:if test="${oggetto.quantita > 0}">
+                <tr>
+                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></th>
+                <td>ID: ${oggetto.id}</td>
+                </tr>
+                <tr>
+                <td>Nome: ${oggetto.nome}</td>
+                </tr>
+                <td>Quantità: ${oggetto.quantita}</td>
+                </tr>
+                <tr>
+                <td>Prezzo: ${oggetto.prezzo}€</td>
+                </tr> 
+                <tr>
+                <td>
+                    <button class="cliente_button_min" onclick="location.href='Venditore_log?oggettoId=${oggetto.id}'">Modifica</button>
+                    <button class="cliente_button_min" onclick="location.href='Venditore_log?oggettoDelete=${oggetto.id}'">Rimuovi</button>
+                </td>
+                </tr>
+                </c:if>
+                </c:forEach>    
+            </table>
+        </div>
+        
+        </c:when>
+         
+         <c:when test="${vendor_loggedin && oggettoAdd}">
+             <!-- inserimento nuovo oggetto -->
+        <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3> 
         <div class="venditore">
         <h3 class="venditore_title">Inserisci un nuovo oggetto</h3>
         <form method="post" action="Venditore_log">
@@ -56,8 +122,59 @@ and open the template in the editor.
             <input id="venditore_insert" type="submit" value="Inserisci" name="Submit"/>
             <!--<input id="venditore_delete" type="submit" value="Pulisci campi"/>-->
         </form>
-       </div>   
+       </div>    
+         </c:when>
+        
+        <c:when test="${vendor_loggedin && oggettoDelete}">
+        <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3>
+        <div id="cliente">
+        <h2 class="cliente_title">Sei sicuro di voler eliminare questo oggetto?</h2>
+        <table>
+            <tr>
+            <th>ID</th>    
+            <th>Nome</th>
+            <th>Foto</th>
+            <th>Descrizione</th>
+            <th>Quantità</th>
+            <th>Prezzo</th>
+            <th>Elimina</th>
+            </tr>
+                <tr>
+                <td>${oggetto.id}</td>
+                <td>${oggetto.nome}</td>
+                <td><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></td>
+                <td>${oggetto.descrizione}</td>
+                <td>${oggetto.quantita}</td>
+                <td>${oggetto.prezzo}€</td>
+                <td><button class="cliente_button" onclick="location.href='Venditore_log?oggettoConfermaDelete=${oggetto.id}'">Conferma</button></td>
+                </tr>
+        </table>
+       </div>
+       
+       <div id="cliente_480table">
+            <h1 id="cliente_title_480table">Sei sicuro di voler eliminare questo oggetto?</h1>
+            <table id="on_off_480table">
+                <tr>
+                <th rowspan="5"><img title="${oggetto.categoria}" alt="${oggetto.categoria}" src="${oggetto.url}" width="140" height="140"></th>
+                <td>ID: ${oggetto.id}</td>
+                </tr>
+                <tr>
+                <td>Nome: ${oggetto.nome}</td>
+                </tr>
+                <tr>
+                <td>Quantità: ${oggetto.quantita}</td>
+                </tr>
+                <tr>
+                <td>Prezzo: ${oggetto.prezzo}€</td>
+                </tr>
+                <tr>
+                <td><button class="cliente_button_min" onclick="location.href='Venditore_log?oggettoConfermaDelete=${oggetto.id}'">Rimuovi oggetto</button></td>
+                </tr>
+            </table>
+        </div>
         </c:when>
+ 
+         
         
         <c:when test="${vendor_loggedin && inserito}">
         <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3>

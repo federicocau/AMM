@@ -528,6 +528,9 @@ p{
   /* onmouse over appare la manina*/
   cursor: pointer;
   
+  margin-top: 7px;
+  
+  
   /*background-color: #fff;*/
   background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
 }
@@ -564,6 +567,7 @@ p{
     /* posizione scritta all'interno del bottone */
     padding-top:4px;
 
+    margin-top: 5px;
     /* onmouse over appare la manina*/
     cursor: pointer;
 
@@ -733,6 +737,7 @@ p{
         position:absolute;
         left:-9999px;
     }
+
     
 }
 
