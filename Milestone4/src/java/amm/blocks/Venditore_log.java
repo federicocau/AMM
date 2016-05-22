@@ -141,19 +141,26 @@ public class Venditore_log extends HttpServlet {
                     request.setAttribute("oggettoNonTrovato", true);
             }
             
-            // aggiunta oggetto
+            // click bottone aggiunta oggetto
             if(request.getParameter("oggettoAdd") != null){
-            // inserimento oggetto
-            TechwareObject oggetto = new TechwareObject();
-            request.setAttribute("inserito", false);
+                request.setAttribute("oggettoAdd", true);
 
+            
+            }
+            
+            // click bottone aggiunta oggetto
+            if(request.getParameter("Submit") != null){
+            
+                request.setAttribute("inserito", false);
+                // inserimento oggetto
+                TechwareObject oggetto = new TechwareObject();
                 if(request.getParameter("Submit") != null){
                     String nomeOggetto = request.getParameter("nome_oggetto");
                     String urlOggetto = request.getParameter("url_immagine");
                     String descrizioneOggetto = request.getParameter("descrizione_oggetto");
-                    int prezzoOggetto = 0;
-                    if(Integer.parseInt(request.getParameter("prezzo")) >= 0)
-                        prezzoOggetto = Integer.parseInt(request.getParameter("prezzo"));
+                    double prezzoOggetto = 0;
+                    if(Double.parseDouble(request.getParameter("prezzo")) >= 0)
+                        prezzoOggetto = Double.parseDouble(request.getParameter("prezzo"));
 
                     int quantitaOggetto = 0;
                     if(Integer.parseInt(request.getParameter("quantity")) >= 0)
@@ -166,11 +173,21 @@ public class Venditore_log extends HttpServlet {
                     oggetto.setDescrizione(descrizioneOggetto);
                     oggetto.setPrezzo(prezzoOggetto);
                     oggetto.setQuantita(quantitaOggetto);
+                    boolean inserito = TechwareObjFactory.getInstance().inserisciOggetto(oggetto, id_venditore);
+                    if(inserito){
+                        request.setAttribute("inserito", true);
+                    }
+                        
+                    else{
+                        request.setAttribute("noninserito", true);
+                    }
+                    
+                    
                     // oggetto inserito
                     request.setAttribute("inserito", true);
                     // setto l'oggetto che voglio passare alla pagina jsp
                     request.setAttribute("oggetto", oggetto);
-
+                 
                 }
             
             }

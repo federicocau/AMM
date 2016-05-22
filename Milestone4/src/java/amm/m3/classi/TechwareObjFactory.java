@@ -226,17 +226,53 @@ public class TechwareObjFactory {
             // path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "root", "root");
 
-            String query = "UPDATE oggetto SET "
-                        + "   nome = '"          + oggetto.nome 
-                        + "' , url = '"           + oggetto.url 
-                        + "' , descrizione = '"   + oggetto.descrizione 
-                        + "' , prezzo = "        + oggetto.prezzo 
-                        + " , quantita = "      + oggetto.quantita
-                        + " WHERE id = "        + oggetto.id;
+            String query = "UPDATE oggetto SET nome = ? , url = ? , descrizione = ?, prezzo = ?, quantita = ? WHERE id = ?";
 
-            Statement st = conn.createStatement();
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1, oggetto.nome);
+            st.setString(2, oggetto.url);
+            st.setString(3, oggetto.descrizione);
+            st.setDouble(4, oggetto.prezzo);
+            st.setInt(5, oggetto.quantita);
+            st.setInt(6, oggetto.id);
             // conto le righe brutalmente
-            int rows = st.executeUpdate(query);
+            int rows = st.executeUpdate();
+
+            if(rows == 1)
+               flag = true;
+            st.close();
+            conn.close();
+                  
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+    
+    // elimina un oggetto  
+    public boolean inserisciOggetto(TechwareObject oggetto, int id_venditore){
+        boolean flag = false;
+        try 
+        {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "root", "root");
+             
+            String query = "INSERT INTO oggetto (id, categoria, nome, url, descrizione, prezzo, quantita, venditore_id ) VALUES "
+                         + " (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1, "default");
+            st.setString(2, "none");
+            st.setString(3, oggetto.nome);
+            st.setString(4, oggetto.url);
+            st.setString(5, oggetto.descrizione);
+            st.setDouble(6, oggetto.prezzo);
+            st.setInt(7, oggetto.quantita);
+            st.setInt(8, id_venditore);
+            // conto le righe brutalmente
+            int rows = st.executeUpdate();
 
             if(rows == 1)
                flag = true;

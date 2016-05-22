@@ -540,6 +540,42 @@ p{
   background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
 }
 
+/* bottone inserimento oggetto */
+.inserisci_oggetto{
+    /* dimensione e colore del bordo */
+  border: 1px solid #a1a3a3;
+  /* ondulazione angoli */
+  border-radius: 4px;
+  /* ombra angoli */
+  box-shadow: 0 1px #fff;  
+   
+  /* larghezza bottone */
+  width: 240px;
+  /* altezza bottone */
+  height:50px;
+  
+  font-size:20px;
+  /* colore scritta */
+  color:#000;
+  
+  text-align:center;
+
+ 
+  /* posizione scritta all'interno del bottone */
+  padding-top:4px;
+ 
+  /* onmouse over appare la manina*/
+  cursor: pointer;
+
+  /*background-color: #fff;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+}
+
+.inserisci_oggetto:hover{
+    /*background-color: #ABABAB;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
+}
+
 #cliente_title_480table{
     text-align: center;
 }

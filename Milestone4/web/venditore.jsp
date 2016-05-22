@@ -33,7 +33,7 @@ and open the template in the editor.
         <%@ include file="blocchi_dinamici/header.jsp" %>
         <%@ include file="blocchi_dinamici/nav_logged.jsp" %>
         <c:choose>
-        <c:when test="${vendor_loggedin && !oggettoDelete && !oggettoModify}">
+        <c:when test="${vendor_loggedin && !oggettoDelete && !oggettoModify && !oggettoAdd}">
             
          <h3 class="user_stats">Bentornato, ${venditore.nome} ${venditore.cognome} (${venditore.tipo}) - Saldo: ${venditore.conto}€  </h3>
          <c:if test="${oggettoNonTrovato}">
@@ -51,6 +51,10 @@ and open the template in the editor.
         <c:if test="${oggettoModificato}">
             <h1 class="cliente_buy_success"> Oggetto con id = ${objId} modificato con successo!</h1> 
         </c:if>
+        
+        <div class="cliente_buy_success"> 
+        <button class="inserisci_oggetto" type="Submit" onclick="location.href='Venditore_log?oggettoAdd=1'">Inserisci nuovo oggetto</button>
+        </div>   
         <div id="cliente">
         <h1 class="cliente_title">Oggetti in Vendita</h1>
         <table>
@@ -123,7 +127,7 @@ and open the template in the editor.
             <label for="url_immagine" class="venditore_form">URL immagine</label> <input name="url_immagine" id="url_immagine" type="url" value="${oggetto.url}" required/>
             <label for="descrizione_oggetto" class="venditore_form">Descrizione</label> <textarea rows="7" cols="60"  name="descrizione_oggetto" id="descrizione_oggetto" required>${oggetto.descrizione}</textarea>
             <label for="prezzo" class="venditore_form">Prezzo</label>      <input name="prezzo" id="prezzo" type="number" step="any" min="0" value="${oggetto.prezzo}" required/>
-            <label for="quantity" class="venditore_form">Quantità  </label> <input name="quantity" id="quantity" type="number" step="any" min="0" value="${oggetto.quantita}" required/>
+            <label for="quantity" class="venditore_form">Quantità  </label> <input name="quantity" id="quantity" type="number"  min="0" value="${oggetto.quantita}" required/>
             
             <input id="venditore_insert" type="submit" value="Inserisci" name="Submit"/>
             <!--<input id="venditore_delete" type="submit" value="Pulisci campi"/>-->
@@ -142,8 +146,8 @@ and open the template in the editor.
             <label for="nome_oggetto" class="venditore_form">Nome oggetto</label> <input name="nome_oggetto" id="nome_oggetto" type="text" required/>
             <label for="url_immagine" class="venditore_form">URL immagine</label> <input name="url_immagine" id="url_immagine" type="url" required/>
             <label for="descrizione_oggetto" class="venditore_form">Descrizione</label> <textarea rows="7" cols="60"  name="descrizione_oggetto" id="descrizione_oggetto" required></textarea>
-            <label for="prezzo" class="venditore_form">Prezzo</label>      <input name="prezzo" id="prezzo" type="number" min="0" required/>
-            <label for="quantity" class="venditore_form">Quantità  </label> <input name="quantity" id="quantity" type="number" min="0" required/>
+            <label for="prezzo" class="venditore_form">Prezzo</label>      <input name="prezzo" id="prezzo" type="number" step="any" min="0" required/>
+            <label for="quantity" class="venditore_form">Quantità  </label> <input name="quantity" id="quantity" type="number"  min="0" required/>
             
             <input id="venditore_insert" type="submit" value="Inserisci" name="Submit"/>
             <!--<input id="venditore_delete" type="submit" value="Pulisci campi"/>-->
