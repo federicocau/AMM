@@ -49,19 +49,48 @@ public class Venditore_log extends HttpServlet {
             int id_venditore = (int)HttpSession.getAttribute("id");
             request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getVenditoreObjectList(id_venditore));
             
-            // rimozione oggetto
+            
+            // preparazione alla rimozione dell'oggetto
             if(request.getParameter("oggettoDelete") != null){
-                // controllare che l'oggetto sia in possesso di quel determinato venditore
-                
                 int id_oggetto = Integer.parseInt(request.getParameter("oggettoDelete"));
+                // controllo che l'oggetto sia in possesso di quel determinato venditore
                 boolean oggetto_venditore = TechwareObjFactory.getInstance().checkVenditoreObject(id_venditore, id_oggetto);
                 if(oggetto_venditore){
                     request.setAttribute("oggettoDelete", true);
                     request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id_oggetto));
                 }
-                    
+                else
+                    request.setAttribute("oggettoNonTrovato", true);
             }
             
+            // conferma dell'eliminazione dell'oggetto
+            if(request.getParameter("oggettoConfermaDelete") != null){
+               int id_oggetto = Integer.parseInt(request.getParameter("oggettoConfermaDelete"));
+               // controllo che l'oggetto sia in possesso di quel determinato venditore
+               boolean oggetto_venditore = TechwareObjFactory.getInstance().checkVenditoreObject(id_venditore, id_oggetto);
+                if(oggetto_venditore){
+                    // elimino l'oggetto
+                    request.setAttribute("objId", id_oggetto);
+                    boolean eliminato = TechwareObjFactory.getInstance().eliminaOggetto(id_oggetto);
+                    if(eliminato)
+                        request.setAttribute("oggettoConfermaDelete", true);
+                    else
+                        request.setAttribute("oggettoNonEliminato", true);
+
+                    // aggiorno la lista oggetti
+                    request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getVenditoreObjectList(id_venditore));
+                }
+                
+                else
+                    request.setAttribute("oggettoNonTrovato", true);
+            }
+            
+            // modifica oggetto
+            if(request.getParameter("modificaOggetto") != null){
+                
+            }
+            
+            // aggiunta oggetto
             if(request.getParameter("oggettoAdd") != null){
             // inserimento oggetto
             TechwareObject oggetto = new TechwareObject();
