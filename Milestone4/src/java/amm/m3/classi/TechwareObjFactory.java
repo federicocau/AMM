@@ -260,17 +260,16 @@ public class TechwareObjFactory {
             Connection conn = DriverManager.getConnection(connectionString, "root", "root");
              
             String query = "INSERT INTO oggetto (id, categoria, nome, url, descrizione, prezzo, quantita, venditore_id ) VALUES "
-                         + " (?, ?, ?, ?, ?, ?, ?, ?)";
+                         + " (default, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement st = conn.prepareStatement(query);
-            st.setString(1, "default");
-            st.setString(2, "none");
-            st.setString(3, oggetto.nome);
-            st.setString(4, oggetto.url);
-            st.setString(5, oggetto.descrizione);
-            st.setDouble(6, oggetto.prezzo);
-            st.setInt(7, oggetto.quantita);
-            st.setInt(8, id_venditore);
+            st.setString(1, "none");
+            st.setString(2, oggetto.nome);
+            st.setString(3, oggetto.url);
+            st.setString(4, oggetto.descrizione);
+            st.setDouble(5, oggetto.prezzo);
+            st.setInt(6, oggetto.quantita);
+            st.setInt(7, id_venditore);
             // conto le righe brutalmente
             int rows = st.executeUpdate();
 

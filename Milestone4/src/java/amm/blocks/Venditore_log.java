@@ -140,56 +140,47 @@ public class Venditore_log extends HttpServlet {
                 else
                     request.setAttribute("oggettoNonTrovato", true);
             }
-            
             // click bottone aggiunta oggetto
             if(request.getParameter("oggettoAdd") != null){
                 request.setAttribute("oggettoAdd", true);
-
-            
             }
             
-            // click bottone aggiunta oggetto
-            if(request.getParameter("Submit") != null){
+            // creazione nuovo oggetto
+            if(request.getParameter("SubmitOgg")!= null){
             
                 request.setAttribute("inserito", false);
                 // inserimento oggetto
                 TechwareObject oggetto = new TechwareObject();
-                if(request.getParameter("Submit") != null){
-                    String nomeOggetto = request.getParameter("nome_oggetto");
-                    String urlOggetto = request.getParameter("url_immagine");
-                    String descrizioneOggetto = request.getParameter("descrizione_oggetto");
-                    double prezzoOggetto = 0;
-                    if(Double.parseDouble(request.getParameter("prezzo")) >= 0)
-                        prezzoOggetto = Double.parseDouble(request.getParameter("prezzo"));
+                String nomeOggetto = request.getParameter("nome_oggetto");
+                String urlOggetto = request.getParameter("url_immagine");
+                String descrizioneOggetto = request.getParameter("descrizione_oggetto");
+                double prezzoOggetto = 0;
+                if(Double.parseDouble(request.getParameter("prezzo")) >= 0)
+                   prezzoOggetto = Double.parseDouble(request.getParameter("prezzo"));
 
-                    int quantitaOggetto = 0;
-                    if(Integer.parseInt(request.getParameter("quantity")) >= 0)
-                        quantitaOggetto = Integer.parseInt(request.getParameter("quantity"));
+                int quantitaOggetto = 0;
+                if(Integer.parseInt(request.getParameter("quantity")) >= 0)
+                    quantitaOggetto = Integer.parseInt(request.getParameter("quantity"));
 
 
-                    // Assegna i dati prelevati
-                    oggetto.setNome(nomeOggetto);
-                    oggetto.setUrl(urlOggetto);
-                    oggetto.setDescrizione(descrizioneOggetto);
-                    oggetto.setPrezzo(prezzoOggetto);
-                    oggetto.setQuantita(quantitaOggetto);
-                    boolean inserito = TechwareObjFactory.getInstance().inserisciOggetto(oggetto, id_venditore);
-                    if(inserito){
-                        request.setAttribute("inserito", true);
-                    }
-                        
-                    else{
-                        request.setAttribute("noninserito", true);
-                    }
-                    
-                    
-                    // oggetto inserito
+                // Assegna i dati prelevati
+                oggetto.setNome(nomeOggetto);
+                oggetto.setUrl(urlOggetto);
+                oggetto.setDescrizione(descrizioneOggetto);
+                oggetto.setPrezzo(prezzoOggetto);
+                oggetto.setQuantita(quantitaOggetto);
+                boolean inserito = TechwareObjFactory.getInstance().inserisciOggetto(oggetto, id_venditore);
+                if(inserito){
                     request.setAttribute("inserito", true);
-                    // setto l'oggetto che voglio passare alla pagina jsp
-                    request.setAttribute("oggetto", oggetto);
-                 
                 }
-            
+                        
+                else{
+                    request.setAttribute("noninserito", true);
+                }
+                    
+                // aggiorno la lista oggetti
+                request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getVenditoreObjectList(id_venditore));
+ 
             }
             
             
