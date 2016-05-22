@@ -7,6 +7,7 @@ package amm.blocks;
 
 import amm.m3.classi.TechwareObjFactory;
 import amm.m3.classi.TechwareObject;
+import amm.m3.classi.Venditore;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -43,37 +44,58 @@ public class Venditore_log extends HttpServlet {
         if(HttpSession.getAttribute("vendor_loggedin")!= null && 
            HttpSession.getAttribute("vendor_loggedin").equals(true))
         {
+            // prendo tutti gli oggetti del venditore loggato
+            request.setAttribute("venditore", TechwareObjFactory.getInstance().getVenditore((int)HttpSession.getAttribute("id")));
+            int id_venditore = (int)HttpSession.getAttribute("id");
+            request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getVenditoreObjectList(id_venditore));
+            
+            // rimozione oggetto
+            if(request.getParameter("oggettoDelete") != null){
+                // controllare che l'oggetto sia in possesso di quel determinato venditore
+                
+                int id_oggetto = Integer.parseInt(request.getParameter("oggettoDelete"));
+                boolean oggetto_venditore = TechwareObjFactory.getInstance().checkVenditoreObject(id_venditore, id_oggetto);
+                if(oggetto_venditore){
+                    request.setAttribute("oggettoDelete", true);
+                    request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id_oggetto));
+                }
+                    
+            }
+            
+            if(request.getParameter("oggettoAdd") != null){
             // inserimento oggetto
             TechwareObject oggetto = new TechwareObject();
             request.setAttribute("inserito", false);
 
-            if(request.getParameter("Submit") != null){
-                String nomeOggetto = request.getParameter("nome_oggetto");
-                String urlOggetto = request.getParameter("url_immagine");
-                String descrizioneOggetto = request.getParameter("descrizione_oggetto");
-                int prezzoOggetto = 0;
-                if(Integer.parseInt(request.getParameter("prezzo")) >= 0)
-                    prezzoOggetto = Integer.parseInt(request.getParameter("prezzo"));
+                if(request.getParameter("Submit") != null){
+                    String nomeOggetto = request.getParameter("nome_oggetto");
+                    String urlOggetto = request.getParameter("url_immagine");
+                    String descrizioneOggetto = request.getParameter("descrizione_oggetto");
+                    int prezzoOggetto = 0;
+                    if(Integer.parseInt(request.getParameter("prezzo")) >= 0)
+                        prezzoOggetto = Integer.parseInt(request.getParameter("prezzo"));
 
-                int quantitaOggetto = 0;
-                if(Integer.parseInt(request.getParameter("quantity")) >= 0)
-                    quantitaOggetto = Integer.parseInt(request.getParameter("quantity"));
+                    int quantitaOggetto = 0;
+                    if(Integer.parseInt(request.getParameter("quantity")) >= 0)
+                        quantitaOggetto = Integer.parseInt(request.getParameter("quantity"));
 
 
-                // Assegna i dati prelevati
-                oggetto.setNome(nomeOggetto);
-                oggetto.setUrl(urlOggetto);
-                oggetto.setDescrizione(descrizioneOggetto);
-                oggetto.setPrezzo(prezzoOggetto);
-                oggetto.setQuantita(quantitaOggetto);
-                // oggetto inserito
-                request.setAttribute("inserito", true);
-                // setto l'oggetto che voglio passare alla pagina jsp
-                request.setAttribute("oggetto", oggetto);
-                
+                    // Assegna i dati prelevati
+                    oggetto.setNome(nomeOggetto);
+                    oggetto.setUrl(urlOggetto);
+                    oggetto.setDescrizione(descrizioneOggetto);
+                    oggetto.setPrezzo(prezzoOggetto);
+                    oggetto.setQuantita(quantitaOggetto);
+                    // oggetto inserito
+                    request.setAttribute("inserito", true);
+                    // setto l'oggetto che voglio passare alla pagina jsp
+                    request.setAttribute("oggetto", oggetto);
+
+                }
+            
             }
             
-            request.setAttribute("venditore", TechwareObjFactory.getInstance().getVenditore((int)HttpSession.getAttribute("id")));
+            
             request.getRequestDispatcher("venditore.jsp").forward(request , response);
         }
         
