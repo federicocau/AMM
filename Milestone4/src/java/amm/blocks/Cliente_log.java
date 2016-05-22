@@ -63,17 +63,13 @@ public class Cliente_log extends HttpServlet {
                 int id_oggetto = Integer.parseInt(request.getParameter("oggettoId_buy"));
                 // controllo che l'oggetto esista
                 TechwareObject objExists = TechwareObjFactory.getInstance().getObjectById(id_oggetto);
-                
-                if(objExists == null){
-                    request.setAttribute("oggetto_terminato", true);
-                    request.getRequestDispatcher("cliente.jsp").forward(request , response);
-                }
-                request.setAttribute("selezionato", true);    
-                request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id_oggetto));
-                
+                request.setAttribute("comprato", true);
+           
                 // se l'oggetto selezionato è diverso da null
-                if(request.getAttribute("oggetto") != null)
+                if(objExists != null)
                 {
+                    request.setAttribute("selezionato", true);    
+                    request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id_oggetto));
                     // setto l'id utente
                     int id_cliente = (int)HttpSession.getAttribute("id");
                     // prendo il conto del cliente, il prezzo e la quantità dell'oggetto
@@ -94,21 +90,35 @@ public class Cliente_log extends HttpServlet {
                     switch(comprato){
                         case 1: // oggetto esaurito
                             request.setAttribute("oggetto_esaurito", true);
+                            request.setAttribute("comprato", false);
                             break;
                         case 2: // credito non disponibile
                             request.setAttribute("credito_insufficiente", true);
+                            request.setAttribute("comprato", false);
                             break;
                         case 3: // errore SQL
                             request.setAttribute("errore_sql", true);
+                            request.setAttribute("comprato", false);
                             break;                 
                     }
-                    // aggiorno i dati dell'oggetto e del cliente sulla pagina
-                    // devo aggiornarli solo se l'oggetto esiste!!!!
+                    // aggiorno i dati dell'oggetto (so che esiste)
                     request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id_oggetto));
-                    request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
-                }                 
+                }
+
+                // ricontrollo se è null dopo la transazione
+                objExists = TechwareObjFactory.getInstance().getObjectById(id_oggetto);
+                if(objExists == null){
+                    request.setAttribute("oggetto_terminato", true);
+                    request.setAttribute("selezionato", false);
+                    request.setAttribute("comprato", false);
+                }
+
+                
+                // aggiorno sempre i dati del cliente
+                request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
             }
-            
+            // aggiorno gli oggetti in vendita
+            request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getSellingObjectList());
             request.getRequestDispatcher("cliente.jsp").forward(request , response);
         }
         
