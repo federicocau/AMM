@@ -385,6 +385,7 @@ public class TechwareObjFactory {
         }
         catch (SQLException e) 
         {
+            System.out.println(e.toString()+"________");
             e.printStackTrace();
         }
         return null;

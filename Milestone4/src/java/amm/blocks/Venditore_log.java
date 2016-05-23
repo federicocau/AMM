@@ -143,10 +143,12 @@ public class Venditore_log extends HttpServlet {
             // click bottone aggiunta oggetto
             if(request.getParameter("oggettoAdd") != null){
                 request.setAttribute("oggettoAdd", true);
+                // mi serve per evitare che aggiornando la pagina vengano creati infiniti oggetti uguali rispetto a quello inserito
+                HttpSession.setAttribute("from_button", true);
             }
             
-            // creazione nuovo oggetto
-            if(request.getParameter("SubmitOgg")!= null){
+            // creazione nuovo oggetto (solo se ho premuto il bottone inserisci oggetto)
+            if(request.getParameter("SubmitOgg")!= null && HttpSession.getAttribute("from_button").equals(true) ){
             
                 request.setAttribute("inserito", false);
                 // inserimento oggetto
@@ -180,6 +182,8 @@ public class Venditore_log extends HttpServlet {
                     
                 // aggiorno la lista oggetti
                 request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getVenditoreObjectList(id_venditore));
+                // ho creato l'oggetto e torno a venditore.jsp (non provengo più dalla submit del bottone)
+                HttpSession.setAttribute("from_button", false);
  
             }
             
