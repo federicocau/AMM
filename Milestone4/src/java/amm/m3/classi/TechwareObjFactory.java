@@ -217,7 +217,7 @@ public class TechwareObjFactory {
         }
         return flag;
     }
-    
+     
     // elimina un oggetto  
     public boolean modificaOggetto(TechwareObject oggetto) {
         boolean flag = false;

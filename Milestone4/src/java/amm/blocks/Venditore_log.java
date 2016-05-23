@@ -97,7 +97,7 @@ public class Venditore_log extends HttpServlet {
                 else
                     request.setAttribute("oggettoNonTrovato", true);
             }
-            
+             
             // oggetto modificato
             if(request.getParameter("oggettoModificato") != null){
                 int id_oggetto = Integer.parseInt(request.getParameter("oggettoModificato"));
