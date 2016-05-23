@@ -42,7 +42,7 @@ public class LoginPage extends HttpServlet {
             Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex); /* controllare questa riga -> LoginPage*/
         }
         // mettere la nostra factory personale
-        TechwareObjFactory.getInstance().setConnectionString(dbConnection);
+        TechwareObjFactory.getInstance().setConnectionString(dbConnection); 
     }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
