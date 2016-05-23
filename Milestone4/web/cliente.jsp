@@ -2,7 +2,7 @@
     Document   : cliente
     Created on : 20-apr-2016, 16.25.00
     Author     : Admin
---%>
+--%> 
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
