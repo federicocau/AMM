@@ -102,6 +102,7 @@ and open the template in the editor.
                 <tr>
                 <td>Nome: ${oggetto.nome}</td>
                 </tr>
+                <tr>
                 <td>Quantità: ${oggetto.quantita}</td>
                 </tr>
                 <tr>
