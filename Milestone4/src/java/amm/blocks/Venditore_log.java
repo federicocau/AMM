@@ -126,7 +126,7 @@ public class Venditore_log extends HttpServlet {
                     if(modificato){
                         request.setAttribute("oggettoModificato", true);
                         request.setAttribute("objId", id_oggetto);
-                    }
+                    } 
                         
                     else{
                         request.setAttribute("oggettoNonModificato", true);

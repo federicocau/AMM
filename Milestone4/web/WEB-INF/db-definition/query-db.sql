@@ -5,8 +5,22 @@
  */
 /**
  * Author:  Admin
- * Created: 15-mag-2016
+ * Created: 23-mag-2016
  */
+
+
+INSERT INTO venditore (id, nome, cognome, username, password, tipo, conto) 
+VALUES
+(default, 'Mario', 'Rossi', 'Mariotto', 'cicale', 'venditore', 300.10),
+(default, 'Gino', 'Rossi', 'Ginetto', 'pollo', 'venditore', 44.70),
+(default, 'Ralf', 'Break', 'Ralfio', 'cipolla', 'venditore',500);
+
+
+INSERT INTO cliente (id, nome, cognome, username, password, tipo, conto) 
+VALUES
+(default, 'Proxy', 'Nell', 'Pronell', 'olio', 'cliente', 100.70),
+(default, 'Elena', 'Fenzi', 'Elepi', 'cavolo', 'cliente', 700),
+(default, 'Serena', 'Bulli', 'Serel', 'uovo', 'cliente', 600.50);
 
 
 INSERT INTO oggetto (id, categoria, nome, url, descrizione, prezzo, quantita, venditore_id ) 

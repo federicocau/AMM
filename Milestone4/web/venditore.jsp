@@ -46,7 +46,7 @@ and open the template in the editor.
             <h1 class="cliente_buy_failed"> Errore durante la rimozione dell'oggetto con id = ${objId}</h1> 
         </c:if>
         <c:if test="${oggettoNonModificato}">
-            <h1 class="cliente_buy_failed"> Errore durante la rimozione dell'oggetto con id = ${objId}</h1> 
+            <h1 class="cliente_buy_failed"> Errore durante la modifica dell'oggetto con id = ${objId}</h1> 
         </c:if>
         <c:if test="${oggettoModificato}">
             <h1 class="cliente_buy_success"> Oggetto con id = ${objId} modificato con successo!</h1> 

@@ -219,13 +219,12 @@ public class TechwareObjFactory {
     }
     
     // elimina un oggetto  
-    public boolean modificaOggetto(TechwareObject oggetto){
+    public boolean modificaOggetto(TechwareObject oggetto) {
         boolean flag = false;
         try 
         {
             // path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "root", "root");
-
             String query = "UPDATE oggetto SET nome = ? , url = ? , descrizione = ?, prezzo = ?, quantita = ? WHERE id = ?";
 
             PreparedStatement st = conn.prepareStatement(query);
