@@ -36,7 +36,7 @@ public class LoginPage extends HttpServlet {
         String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/") + DB_BUILD_PATH;
         //String dbConnection = "jdbc:derby://localhost:1527/ammdb";
         //System.out.println(dbConnection);
-        try {
+        try { 
             Class.forName(JDBC_DRIVER);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex); /* controllare questa riga -> LoginPage*/
