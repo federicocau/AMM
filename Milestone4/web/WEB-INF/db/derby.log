@@ -12,3 +12,5 @@ os.arch=amd64
 os.version=6.3
 derby.system.home=C:\Users\Admin\Documents\NetBeansProjects\AMM_4\Milestone4\web\WEB-INF\db
 Programma di caricamento classe database avviato - derby.database.classpath=''
+----------------------------------------------------------------
+Mon May 23 17:15:24 CEST 2016: arresto in corso del motore di Derby
