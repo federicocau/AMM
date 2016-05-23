@@ -53,11 +53,13 @@ public class Cliente_log extends HttpServlet {
             {
                 request.setAttribute("selezionato", true);
                 int id = Integer.parseInt(request.getParameter("oggettoId"));
-                request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id));           
+                request.setAttribute("oggetto", TechwareObjFactory.getInstance().getObjectById(id));
+                // mi serve per evitare che aggiornando la pagina venga acquistato nuovamente l'oggetto
+                HttpSession.setAttribute("from_button", true);
             }
 
 
-            if(request.getParameter("oggettoId_buy") != null)
+            if(request.getParameter("oggettoId_buy") != null && HttpSession.getAttribute("from_button").equals(true) )
             {
                 
                 int id_oggetto = Integer.parseInt(request.getParameter("oggettoId_buy"));
@@ -116,6 +118,9 @@ public class Cliente_log extends HttpServlet {
                 
                 // aggiorno sempre i dati del cliente
                 request.setAttribute("cliente", TechwareObjFactory.getInstance().getCliente((int)HttpSession.getAttribute("id")));
+                // ho creato l'oggetto e torno a cliente.jsp (non provengo più dalla submit del bottone)
+                HttpSession.setAttribute("from_button", false);
+                request.setAttribute("selezionato", false);
             }
             // aggiorno gli oggetti in vendita
             request.setAttribute("listaOggetti", TechwareObjFactory.getInstance().getSellingObjectList());

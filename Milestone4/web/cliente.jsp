@@ -42,7 +42,10 @@ and open the template in the editor.
         <h3 class="user_stats">Bentornato, ${cliente.nome} ${cliente.cognome} (${cliente.tipo}) - Saldo: ${cliente.conto}€ </h3> 
         <c:if test="${oggetto_terminato}">
             <h1 class="cliente_buy_failed"> Oggetto terminato!</h1> 
-        </c:if>    
+        </c:if> 
+        <c:if test="${comprato}">
+            <h1 class="cliente_buy_success">Oggetto acquistato con successo!</h1> 
+        </c:if>
         <!-- Tabella che contiene: nome, foto, quantità e prezzo dei vari prodotti in vendita -->
         <div id="cliente">
         <h1 class="cliente_title">Prodotti</h1>
