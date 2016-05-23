@@ -33,8 +33,9 @@ public class LoginPage extends HttpServlet {
 
     @Override 
     public void init(){
-        String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/") + DB_BUILD_PATH;
-        //String dbConnection = "jdbc:derby://localhost:1527/ammdb";
+        // utilizzare la stringa con localhost per testare i task
+        //String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/") + DB_BUILD_PATH;
+        String dbConnection = "jdbc:derby://localhost:1527/ammdb";
         //System.out.println(dbConnection);
         try { 
             Class.forName(JDBC_DRIVER);

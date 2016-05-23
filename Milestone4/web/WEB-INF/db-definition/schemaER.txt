@@ -31,7 +31,7 @@ Relazioni:
 - venditore/oggetto: uno a molti (tramite l'oggetto posso risalire al venditore per modificare il conto)
 
 Problemi:
-- a parte la connessione al db tramite path, la milestone e' completa (tutte le query sono corrette; testata su localhost:1527)
+- a parte la connessione al db tramite build/clean path, la milestone e' completa (tutte le query sono corrette; testata su: String dbConnection = "jdbc:derby://localhost:1527/ammdb";)
 - con il BUILD_PATH ci sono problemi durante la update/insert/delete:
 	Grave:   java.sql.SQLTransactionRollbackException: Impossibile ottenere un blocco nel tempo richiesto
 	Caused by: ERROR 40XL1: Impossibile ottenere un blocco nel tempo richiesto
