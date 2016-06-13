@@ -93,6 +93,7 @@ and open the template in the editor.
         
         <div id="cliente_480table">
             <h1 id="cliente_title_480table">Prodotti</h1>
+            <div id="notfound480" ></div>
             <table id="on_off_480table">
                 <c:forEach var="oggetto" items="${listaOggetti}">
                 <c:if test="${oggetto.quantita > 0}">

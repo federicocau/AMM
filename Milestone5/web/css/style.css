@@ -646,10 +646,33 @@ p{
     background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
     }
 
-    .cliente_button_min:hover{
+    .cliente_button_min:hover, .cliente_button_min_js:hover{
         /*background-color: #ABABAB;*/
       background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00eeee));
     }
+ 
+    .cliente_button_min_js{
+
+        /* dimensione e colore del bordo */
+    border: 1px solid #a1a3a3;
+    /* ondulazione angoli */
+    border-radius: 4px;
+    /* ombra angoli */
+    box-shadow: 0 1px #fff;  
+
+    /* colore scritta */
+    color:#000;
+
+    /* posizione scritta all'interno del bottone */
+    padding-top:4px;
+
+    margin-top: 4px;
+    /* onmouse over appare la manina*/
+    cursor: pointer;
+
+    /*background-color: #fff;*/
+    background: -webkit-gradient(linear, left top, left bottom, from(#00eeee), to(#0078a5));
+}
 
 
 /**
